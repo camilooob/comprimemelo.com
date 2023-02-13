@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% import 'macros/macroIdea.html' as macro_idea %}
+{% block title %}
+    {{ super() }}
+    index
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>EVENTOS GESTIONADOS POR ABC</h2>
+        {% if current_user.is_authenticated %}
+        <div class="row">
+              {% for idea in public_eventos %}
+                {{ macro_idea.render_idea(idea) }}
+            {% endfor %}
+        </div>
+        {% else %}
+            <li><a href="{{ url_for('auth.login') }}">Dar clic aqui para autenticarse</a></li>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% import 'macros/macroModal.html' as macro_modal %}
+{% import 'macros/macroListeventos.html' as macro_eventos %}
+{% block title %}
+    {{ super() }}
+    Home
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <a href="{{ url_for('eventos.inserteventos_view') }}" class="btn btn-primary btn-lg">Crear Evento</a>
+        {% if modal['insert'] is true %}
+            {{ macro_modal.render_modal("Registro de Evento", idea_form, 'eventos.home', 'primary') }}
+        {% endif %}
+        {% if modal['update'] is true %}
+            {{ macro_modal.render_modal("Actualización de Evento", idea_form, 'eventos.home', 'danger') }}
+        {% endif %}
+        <hr>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>Lugar</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Categoria</th>
+                        <th>Estado</th>                        
+                        <th>Presencial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for idea in eventos %}
+                        {{ macro_eventos.render_list(idea, delete_form, public_idea_form) }}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block custom_scripts %}
+    {% if (modal['insert'] is true) or (modal['update'] is true) %}
+        <script>
+            window.onload = function(){
+                $("#macroModal").modal("show");
+            }
+        </script>
+    {% endif %}
+{% endblock %}
