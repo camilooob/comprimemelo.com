@@ -176,5 +176,10 @@ services:
 volumes:
   todo-mysql-data:
 
+New endpoints
+We want to add some endpoints for added functionality:
 
+DELETE /item/<string:item_id> so we can delete items from the database.
+PUT /item/<string:item_id> so we can update items.
+DELETE /store/<string:store_id> so we can delete stores
 
