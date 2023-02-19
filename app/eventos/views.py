@@ -1,10 +1,17 @@
-from flask import render_template as render, flash, redirect, url_for
+import io
+from flask import render_template as render, flash, redirect, request, url_for
 from flask_login import login_required, current_user
 from . import eventos
-from app.services import get_Category_by_id, delete_category, create_category, list_categories, list_eventos_by_username, create_idea, delete_idea_db, update_state_idea_db, update_idea_db, get_idea_by_id
+from app.services import get_Category_by_id, delete_category, create_category, list_categories, list_eventos_by_username, create_idea, delete_idea_db, update_state_idea_db, update_idea_db, get_idea_by_id, register_file, download_file, download_file_pdf
 from .form import DeleteCategoryForm, RegisterCategoryForm, IdeaForm, DeleteIdeaForm, PublicIdeaForm
 from app.utils import get_dict_from_wftform
-
+from zipfile import ZipFile
+from io import BytesIO, StringIO
+from pathlib import Path
+import zipfile
+import os.path
+import time  
+import datetime
 def contextHome():
     username = current_user.id
     categories = [(c["id"], c["name"]) for c in list_categories() ]
@@ -18,7 +25,8 @@ def contextHome():
         'public_idea_form': PublicIdeaForm(),
         'modal': {
             'insert': False,
-            'update': False
+            'update': False,
+            'upload':False
         },
     }
 
@@ -82,6 +90,98 @@ def inserteventos_view():
     }
 
     return render('eventos/home.html', **context)
+
+
+@eventos.route('/compressFile')
+@login_required
+def compressFile_view():
+    context = contextHome()
+    context["modal"] = {
+        "insert": False,
+        "udpate": False,
+        "upload": True
+    }
+    return render('eventos/home.html', **context)
+
+@eventos.route('/comprimir')
+@login_required
+def comprimir():
+    
+    return render('/eventos/homeUpload.html')
+
+@eventos.route('/compress', methods=['GET', 'POST'])
+#@login_required
+def compress():
+    file = request.files['file']
+    format=request.form.get('format')
+    
+    print(f'format...{format}')
+
+    pathRoot=f"C:/Users/Franklin pinto/Documents/Uniandes/semestre 2/Desarrollo aplicaciones cloud/comprimemelo.com/"
+    pathUpload=f"uploads/"
+    pathFile=pathRoot+pathUpload+f"{file.filename}"
+    file.save(pathFile);
+    
+    print('compressing...')
+    nombre_archivo, extension = os.path.splitext(pathFile)
+    pathZip=pathRoot+file.filename.replace(extension,format)
+    with zipfile.ZipFile(pathZip, 'w') as zf:
+     zf.write(pathFile,arcname=file.filename)
+    print('...compression done!')
+
+
+    file_data = {
+                'filename': file.filename.replace(extension,format),
+                'path': pathZip,
+                'state': 'COMPRIMIDO',
+                'notified': False,
+                'startDate': datetime.datetime.utcnow(),                
+                'endDate': datetime.datetime.utcnow(),    
+                'data': file.read(),
+                'username':'fpintoc'
+            }
+    id=register_file(file_data)
+
+    flash(f"register_file registrada exitosamente.{id}", category="success")
+
+    context = contextHome()
+    context["modal"] = {
+        "insert": False,
+        "udpate": False,
+        "upload": True
+    }
+
+    return render('/eventos/home.html',**context)
+
+def _walk(path: Path) -> []:
+    all_files = []
+    for x in path.iterdir():
+        if x.is_dir():
+            all_files.extend(_walk(x))
+        else:
+            all_files.append(x)
+    return all_files
+
+
+def zip_files(path: Path, archive_name: str):
+    all_files = _walk(path)
+    with zipfile.ZipFile(f'{archive_name}', 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for f in all_files:
+            zipf.write(f)
+        zipf.close()
+
+@eventos.route('/download/<upload_id>')
+#@login_required
+def download():
+    print('leyendo archivo...')
+    download_file_pdf(4)
+    
+    flash("register_file descargado exitosamente.", category="success")
+
+    
+
+    return render('index.html')
+
 
 @eventos.route('/delete_idea/<idea_id>', methods=['POST'])
 @login_required

@@ -52,6 +52,22 @@ class Idea(db.Model):
     
 
 
+class Upload(db.Model):
+    __tablename__ = 'upload'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(50))
+    state = db.Column(db.String(50))
+    path = db.Column(db.String(1000))
+    data = db.Column(db.LargeBinary)
+    startDate = db.Column(db.DateTime(100), nullable=False)
+    endDate = db.Column(db.DateTime(100), nullable=False)
+    notified = db.Column(db.Boolean, default=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+    user = db.relationship('User', backref=db.backref('upload', lazy=True))
+
+
+
 
 
 

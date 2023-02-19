@@ -1,7 +1,11 @@
-from flask import render_template as render, flash, send_from_directory
+from flask import render_template as render, flash, send_from_directory, request
 from app import create_app
 from app.migrate import init_db
-from app.services import list_public_eventos
+from app.services import list_public_eventos, download_file, download_file, download_file_pdf,register_file
+import zipfile
+import os.path
+import time  
+import datetime
 
 app = create_app()
 
@@ -41,10 +45,55 @@ def database():
     return "base de datos creada correctamente. """
 
 
-@app.route('/app/v1/users')
-def user_actions():
-    print("estoy aca")
-    return "funcionado..."
+
+@app.route('/app/v1/upload', methods=['GET', 'POST'])
+def upload():
+   
+    return render('upload.html')
+
+@app.route('/app/v1/upload',methods=['POST'])
+def index4():
+      url_params = request.args
+  
+    # Retrieve parameters which are present
+      format = url_params['format']
+
+      print(f'compressing...{format}')
+      file = request.files['file']
+      pathRoot=f"C:/Users/Franklin pinto/Documents/Uniandes/semestre 2/Desarrollo aplicaciones cloud/comprimemelo.com/"
+      pathUpload=f"uploads/"
+      pathFile=pathRoot+pathUpload+f"{file.filename}"
+      file.save(pathFile);
+
+      print('compressing...')
+      nombre_archivo, extension = os.path.splitext(pathFile)
+      #pathZip=pathRoot+file.filename.replace(extension,'.zip')
+      pathZip=pathRoot+file.filename.replace(extension,format)
+      with zipfile.ZipFile(pathZip, 'w') as zf:
+          zf.write(pathFile,arcname=file.filename)
+      print('...compression done!')
+
+
+      file_data = {
+        #'filename': file.filename.replace(extension,'.zip'),
+        'filename': file.filename.replace(extension,format),
+        'path': pathZip,
+        'state': 'COMPRIMIDO',
+        'notified': False,
+        'startDate': datetime.datetime.utcnow(),                
+        'endDate': datetime.datetime.utcnow(),    
+        'data': file.read(),
+        'username':'fpintoc'
+      }
+      id=register_file(file_data)
+   
+      #return f"Archivo guardado correctamente. {id}"
+      return f"{id}"
+
+@app.route('/app/v1/download/<upload_id>', methods=["GET", "POST"])
+def index3(upload_id):
+   
+   return  download_file(upload_id)
 
 @app.route("/app/v1/login", methods=["GET", "POST"])
 def login():
@@ -73,3 +122,6 @@ def login():
             context["mensaje"] = "Usuario no encontrado"
             return render_template("login.html", context=context)
     return render_template("login.html", context=context)
+
+
+

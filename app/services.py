@@ -1,7 +1,8 @@
 from .database import *
 from .serializer import *
 from .utils import remove_pictute_profile
-
+from flask import Flask, render_template, request, send_file
+from io import BytesIO
 
 def get_user_by_username(username):
     """ Método para retornar el usuario a partir del username. """
@@ -21,6 +22,44 @@ def register_user(user_data):
 
     db.session.add(user)
     db.session.commit()
+
+def register_file(file_data):
+    """ Método para registrar un archivo nuevo en la base de datos. """
+    user = get_user_by_username(
+        file_data['username']
+    )
+
+    upload = Upload(
+        filename =file_data['filename'],
+        path=file_data['path'],
+        state=file_data['state'],
+        data=file_data['data'],
+        startDate=file_data['startDate'],
+        endDate=file_data['endDate'],
+        notified=file_data['notified'],
+        user=user
+    )
+    db.session.add(upload)
+    db.session.commit()
+    
+    return upload.id
+
+def download_file_pdf(upload_id):
+    #upload = Upload.query.get(1)
+    upload = Upload.query.filter_by(id=upload_id).first()
+    return send_file(BytesIO(upload.data),  mimetype="application/pdf", download_name=upload.filename )
+
+def download_file(upload_id):
+
+    upload = Upload.query.filter_by(id=upload_id).first()
+    print(upload.path)
+    with open(upload.path, 'rb') as obFile:
+    
+        my_local_data = obFile.read()
+
+    return send_file(BytesIO(my_local_data),  mimetype="application/zip", download_name=upload.filename )
+    
+
 
 def get_Category_by_id(category_id):
     """ Método para busar categoria por id. """
