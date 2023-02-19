@@ -183,3 +183,35 @@ DELETE /item/<string:item_id> so we can delete items from the database.
 PUT /item/<string:item_id> so we can update items.
 DELETE /store/<string:store_id> so we can delete stores
 
+Running the container with volumes for hot reloading
+Up to now, we've been re-building the Docker image and re-running the container each time we make a code change.
+
+This is a bit of a time sink, and a bit annoying to do! Let's do it so that the Docker container runs the code that we're editing. That way, when we make a change to the code, the Flask app should restart and use the new code.
+
+All we have to do is:
+
+Build the Docker image
+Run the image, but replace the contents of the image's /app directory (where the code is) by the contents of our source code folder in the host machine.
+So, first build the Docker image:
+
+docker build -t flask-smorest-api .
+
+Once that's done, the image has an /app directory which contains the source code as it was copied from the host machine during the build stage.
+
+So at this point, we can run a container from this image, and it will run the app as it was when it was built:
+
+docker run -dp 5000:5000 flask-smorest-api
+
+This should just work, and you can try it out in the Insomnia REST Client to make sure the endpoints all work.
+
+But like we said earlier, when we make changes to the code we'll have to rebuild and rerun.
+
+So instead, what we can do is run the image, but replace the image's /app directory with the host's source code folder.
+
+That will cause the source code to change in the Docker container while it's running. And, since we've ran Flask with debug mode on, the Flask app will automatically restart when the code changes.
+
+To do so, stop the running container (if you have one running), and use this command instead:
+
+docker run -dp 5000:5000 -w /app -v "$(pwd):/app" flask-smorest-api
+
+
