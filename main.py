@@ -1,13 +1,26 @@
 from flask import render_template as render, flash, send_from_directory, request
 from app import create_app
+from app.database import Usuarios
 from app.migrate import init_db
 from app.services import list_public_eventos, download_file, download_file, download_file_pdf,register_file
 import zipfile
 import os.path
 import time  
 import datetime
+from flask import Flask, jsonify, make_response   
+from werkzeug.security import generate_password_hash, check_password_hash
+import uuid 
+import jwt
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+import datetime
+from functools import wraps
+from app.database import *
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = create_app()
+
+jwt = JWTManager(app)
 
 @app.errorhandler(404)
 def not_found(error):
@@ -51,7 +64,8 @@ def upload():
    
     return render('upload.html')
 
-@app.route('/app/v1/upload',methods=['POST'])
+@app.route('/app/v1/compress/upload',methods=['POST'])
+@jwt_required()
 def index4():
       url_params = request.args
   
@@ -90,10 +104,17 @@ def index4():
       #return f"Archivo guardado correctamente. {id}"
       return f"{id}"
 
-@app.route('/app/v1/download/<upload_id>', methods=["GET", "POST"])
+@app.route('/app/v1/compress/download/<upload_id>', methods=["GET", "POST"])
+@jwt_required()
 def index3(upload_id):
    
    return  download_file(upload_id)
+
+@app.route("/app/auth/v1/login", methods=["GET", "POST"])
+def loginAuth():
+
+    return "token dsajfklajsdkfjaklsdjkflñaj"
+
 
 @app.route("/app/v1/login", methods=["GET", "POST"])
 def login():
@@ -124,4 +145,63 @@ def login():
     return render_template("login.html", context=context)
 
 
+
+
+def token_required(f):  
+    @wraps(f)  
+    def decorator(*args, **kwargs):
+
+       token = None 
+
+       if 'x-access-tokens' in request.headers:  
+          token = request.headers['x-access-tokens'] 
+
+
+       if not token:  
+          return jsonify({'message': 'a valid token is missing'})   
+
+
+       try:  
+          data = jwt.decode(token, app.config[SECRET_KEY]) 
+          current_user = Users.query.filter_by(public_id=data['public_id']).first()  
+       except:  
+          return jsonify({'message': 'token is invalid'})  
+
+
+          return f(current_user, *args,  **kwargs)  
+    return decorator 
+
+
+@app.route('/register', methods=['POST'])
+def register():
+    email = request.form['email']
+    test = Usuarios.query.filter_by(email=email).first()
+    if test:
+        return jsonify(message='That email already exists'), 409
+    else:
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        password = request.form['password']
+        user = Usuarios(first_name=first_name, last_name=last_name, email=email, password=password)
+        db.session.add(user)
+        db.session.commit()
+        return jsonify(message='User created successfully'), 201
+    
+
+@app.route('/login', methods=['POST'])
+def loginToken():
+    if request.is_json:
+        email = request.json['email']
+        password = request.json['password']
+    else:
+        email = request.form['email']
+        password = request.form['password']
+
+    test = Usuarios.query.filter_by(email=email, password=password).first()
+    if test:
+        access_token = create_access_token(identity=email)
+        return jsonify(message='Login Successful', access_token=access_token)
+    else:
+        return jsonify('Bad email or Password'), 401
+    
 
