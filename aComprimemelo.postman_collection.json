@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "d23e743a-8096-4c72-9d7d-0c836f9ea038",
+		"name": "aComprimemelo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "uploadFile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3Njk0MjU0NiwianRpIjoiNDlkNWMwODYtMzM0Yi00ZjE4LThjMzMtYWQ1YjdiZDlmMmE1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzY5NDI1NDYsImV4cCI6MTY3Njk0MzQ0Nn0.4tkb88N7JWpR9hiM3wQmXbd_DLnO0eycXzr7LfGy07E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Franklin pinto/Documents/INVIAS/JsonGalibo.json"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/app/v1/compress/upload?format=.rar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"app",
+						"v1",
+						"compress",
+						"upload"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": ".rar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "downloadFile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3Njk0MjcwOSwianRpIjoiNDRkNTMyMDctNzQ2Yi00MThhLWEwYzYtYTBkYzljNjI2ZGNjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzY5NDI3MDksImV4cCI6MTY3Njk0MzYwOX0.UUrf1QynVodE0qjbFw7_6BJLGQ0Eq3yQMqVvEOAq1lQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/app/v1/compress/download/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"app",
+						"v1",
+						"compress",
+						"download",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "f.pintoc@unidandes.edu.co",
+							"type": "text"
+						},
+						{
+							"key": "first_name",
+							"value": "Franklin",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Pinto",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pwd",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "f.pintoc@unidandes.edu.co",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pwd",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -172,7 +172,7 @@ def token_required(f):
     return decorator 
 
 
-@app.route('/register', methods=['POST'])
+@app.route('/api/auth/signup', methods=['POST'])
 def register():
     email = request.form['email']
     test = Usuarios.query.filter_by(email=email).first()
@@ -188,7 +188,7 @@ def register():
         return jsonify(message='User created successfully'), 201
     
 
-@app.route('/login', methods=['POST'])
+@app.route('/api/auth/login', methods=['POST'])
 def loginToken():
     if request.is_json:
         email = request.json['email']
