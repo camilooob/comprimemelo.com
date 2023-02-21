@@ -12,6 +12,7 @@ import zipfile
 import os.path
 import time  
 import datetime
+import os
 def contextHome():
     username = current_user.id
     categories = [(c["id"], c["name"]) for c in list_categories() ]
@@ -112,12 +113,13 @@ def comprimir():
 @eventos.route('/compress', methods=['GET', 'POST'])
 #@login_required
 def compress():
+    
     file = request.files['file']
     format=request.form.get('format')
     
     print(f'format...{format}')
 
-    pathRoot=f"C:/Users/Franklin pinto/Documents/Uniandes/semestre 2/Desarrollo aplicaciones cloud/comprimemelo.com/"
+    pathRoot=os.path.abspath(os.curdir)+"/"
     pathUpload=f"uploads/"
     pathFile=pathRoot+pathUpload+f"{file.filename}"
     file.save(pathFile);

@@ -74,7 +74,7 @@ def index4():
 
       print(f'compressing...{format}')
       file = request.files['file']
-      pathRoot=f"C:/Users/Franklin pinto/Documents/Uniandes/semestre 2/Desarrollo aplicaciones cloud/comprimemelo.com/"
+      pathRoot=os.path.abspath(os.curdir)+"/"
       pathUpload=f"uploads/"
       pathFile=pathRoot+pathUpload+f"{file.filename}"
       file.save(pathFile);
