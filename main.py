@@ -75,14 +75,15 @@ def index4():
       print(f'compressing...{format}')
       file = request.files['file']
       pathRoot=os.path.abspath(os.curdir)+"/"
-      pathUpload=f"uploads/"
+      pathUpload=f"sin_comprimir/"
+      pathCompress=f"comprimidos/"
       pathFile=pathRoot+pathUpload+f"{file.filename}"
       file.save(pathFile);
 
       print('compressing...')
       nombre_archivo, extension = os.path.splitext(pathFile)
       #pathZip=pathRoot+file.filename.replace(extension,'.zip')
-      pathZip=pathRoot+file.filename.replace(extension,format)
+      pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
       with zipfile.ZipFile(pathZip, 'w') as zf:
           zf.write(pathFile,arcname=file.filename)
       print('...compression done!')
@@ -122,7 +123,7 @@ def downloadFileCompress(upload_id):
 @jwt_required()
 def downloadFileOriginal(filename):
    pathRoot=os.path.abspath(os.curdir)+"/"
-   pathUpload=f"uploads/"
+   pathUpload=f"sin_comprimir/"
    pathFile=pathRoot+pathUpload+f"{filename}"
 
    return  download_file_original(pathFile)

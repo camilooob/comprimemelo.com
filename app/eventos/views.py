@@ -120,13 +120,14 @@ def compress():
     print(f'format...{format}')
 
     pathRoot=os.path.abspath(os.curdir)+"/"
-    pathUpload=f"uploads/"
+    pathUpload=f"sin_comprimir/"
+    pathCompress=f"comprimidos/"
     pathFile=pathRoot+pathUpload+f"{file.filename}"
     file.save(pathFile);
     
     print('compressing...')
     nombre_archivo, extension = os.path.splitext(pathFile)
-    pathZip=pathRoot+file.filename.replace(extension,format)
+    pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
     with zipfile.ZipFile(pathZip, 'w') as zf:
      zf.write(pathFile,arcname=file.filename)
     print('...compression done!')
