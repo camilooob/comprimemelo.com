@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d23e743a-8096-4c72-9d7d-0c836f9ea038",
+		"_postman_id": "fac6b992-cfc6-4294-bf16-88fa49284603",
 		"name": "aComprimemelo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3Njk0MjU0NiwianRpIjoiNDlkNWMwODYtMzM0Yi00ZjE4LThjMzMtYWQ1YjdiZDlmMmE1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzY5NDI1NDYsImV4cCI6MTY3Njk0MzQ0Nn0.4tkb88N7JWpR9hiM3wQmXbd_DLnO0eycXzr7LfGy07E",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzAyNDgyMSwianRpIjoiM2FkMWQ4MDctMDRiYy00Njg4LTlhZmMtYjljODg0NDNiYWZjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcwMjQ4MjEsImV4cCI6MTY3NzAyNTcyMX0.fflZfb1Inq-y3KXJ1HaNfBdjgEWg1THUVNApQ731GdA",
 							"type": "string"
 						}
 					]
@@ -26,7 +26,7 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/C:/Users/Franklin pinto/Documents/INVIAS/JsonGalibo.json"
+							"src": "/C:/Users/Franklin pinto/Documents/Uniandes/Analisis de Big Data/4-ComputacionDistribuida-Hadoop.pdf"
 						},
 						{
 							"key": "",
@@ -37,7 +37,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/app/v1/compress/upload?format=.rar",
+					"raw": "http://127.0.0.1:5000/app/files/compress/upload?format=.rar",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -48,7 +48,7 @@
 					"port": "5000",
 					"path": [
 						"app",
-						"v1",
+						"files",
 						"compress",
 						"upload"
 					],
@@ -58,12 +58,90 @@
 							"value": ".rar"
 						}
 					]
-				}
+				},
+				"description": "permite cargar un archivo y comprimirlo en el formato deseado, el formato se especifica como un query param con la llave \"format\", los posibles valores de formato de compresión son: .zip .z7 .rar .bzip .tar .gz .tar.gz .tar.bz2\n\nel archivo se debe cargar con la llave \"file\" tipo input file, en Body como forma-data"
+			},
+			"response": []
+		},
+		{
+			"name": "resetDataBase",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/database",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"database"
+					]
+				},
+				"description": "permite cargar un archivo y comprimirlo en el formato deseado, el formato se especifica como un query param con la llave \"format\", los posibles valores de formato de compresión son: .zip .z7 .rar .bzip .tar .gz .tar.gz .tar.bz2\n\nel archivo se debe cargar con la llave \"file\" tipo input file, en Body como forma-data"
 			},
 			"response": []
 		},
 		{
 			"name": "downloadFile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzAyNTEzMSwianRpIjoiNmNkY2UzMWMtYWZkOC00ZDgyLWFiMDAtZjEzZDEzNjM0YjJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcwMjUxMzEsImV4cCI6MTY3NzAyNjAzMX0.vAik69XkWmcJQzp_sIpxfpl9MoE60aQNX1TqlP8C5sw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/app/files/compress/download/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"app",
+						"files",
+						"compress",
+						"download",
+						"1"
+					]
+				},
+				"description": "permite descargar el archivo comprimido a partir de id, que fue obtenido en la respuesta del servicio de uploadFile"
+			},
+			"response": []
+		},
+		{
+			"name": "getOriginalFile",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -78,7 +156,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/app/v1/compress/download/3",
+					"raw": "http://127.0.0.1:5000/api/files/myfile.txt",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -88,18 +166,17 @@
 					],
 					"port": "5000",
 					"path": [
-						"app",
-						"v1",
-						"compress",
-						"download",
-						"3"
+						"api",
+						"files",
+						"myfile.txt"
 					]
-				}
+				},
+				"description": "permite descargar el archivo comprimido a partir de id, que fue obtenido en la respuesta del servicio de uploadFile"
 			},
 			"response": []
 		},
 		{
-			"name": "Register",
+			"name": "signup",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -134,7 +211,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/register",
+					"raw": "http://127.0.0.1:5000/api/auth/signup",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -144,9 +221,12 @@
 					],
 					"port": "5000",
 					"path": [
-						"register"
+						"api",
+						"auth",
+						"signup"
 					]
-				}
+				},
+				"description": "Permite crear una cuenta de usuario, con los campos usuario, correo electrónico y contraseña. El usuario y el correo electrónico deben ser únicos en la plataforma, la contraseña debe seguir unos lineamientos mínimos de seguridad, además debe ser\nUniversidad de los Andes\nsolicitada dos veces para que el usuario confirme que ingresa la contraseña correctamente."
 			},
 			"response": []
 		},
@@ -179,7 +259,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/login",
+					"raw": "http://127.0.0.1:5000/api/auth/login",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -189,9 +269,12 @@
 					],
 					"port": "5000",
 					"path": [
+						"api",
+						"auth",
 						"login"
 					]
-				}
+				},
+				"description": "Permite recuperar el token de autorización para consumir los recursos del API suministrando un nombre de usuario y una contraseña correcta de una cuenta registrada."
 			},
 			"response": []
 		}

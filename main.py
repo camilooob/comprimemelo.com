@@ -2,7 +2,7 @@ from flask import render_template as render, flash, send_from_directory, request
 from app import create_app
 from app.database import Usuarios
 from app.migrate import init_db
-from app.services import list_public_eventos, download_file, download_file, download_file_pdf,register_file
+from app.services import list_public_eventos, download_file, download_file, download_file_pdf,register_file,download_file_original
 import zipfile
 import os.path
 import time  
@@ -64,7 +64,7 @@ def upload():
    
     return render('upload.html')
 
-@app.route('/app/v1/compress/upload',methods=['POST'])
+@app.route('/app/files/compress/upload',methods=['POST'])
 @jwt_required()
 def index4():
       url_params = request.args
@@ -86,12 +86,19 @@ def index4():
       with zipfile.ZipFile(pathZip, 'w') as zf:
           zf.write(pathFile,arcname=file.filename)
       print('...compression done!')
-
+      
+      
 
       file_data = {
         #'filename': file.filename.replace(extension,'.zip'),
-        'filename': file.filename.replace(extension,format),
+        'filenameOriginal': file.filename,
+        'filenameCompress': file.filename.replace(extension,format),
+        'formatOriginal': extension,
+        'formatCompress': format,
+        'mimeTypeOriginal':DIC_MIME_TYPES[extension],
+        'mimeTypeCompress':DIC_MIME_TYPES[format],
         'path': pathZip,
+        'pathOriginal': pathFile,
         'state': 'COMPRIMIDO',
         'notified': False,
         'startDate': datetime.datetime.utcnow(),                
@@ -104,11 +111,22 @@ def index4():
       #return f"Archivo guardado correctamente. {id}"
       return f"{id}"
 
-@app.route('/app/v1/compress/download/<upload_id>', methods=["GET", "POST"])
+@app.route('/app/files/compress/download/<upload_id>', methods=["GET", "POST"])
 @jwt_required()
-def index3(upload_id):
+def downloadFileCompress(upload_id):
    
    return  download_file(upload_id)
+
+
+@app.route('/api/files/<filename>', methods=["GET", "POST"])
+@jwt_required()
+def downloadFileOriginal(filename):
+   pathRoot=os.path.abspath(os.curdir)+"/"
+   pathUpload=f"uploads/"
+   pathFile=pathRoot+pathUpload+f"{filename}"
+
+   return  download_file_original(pathFile)
+
 
 @app.route("/app/auth/v1/login", methods=["GET", "POST"])
 def loginAuth():
@@ -204,4 +222,66 @@ def loginToken():
     else:
         return jsonify('Bad email or Password'), 401
     
-
+DIC_MIME_TYPES = { 
+	".aac"  :"audio/aac",
+	".abw"  :"application/x-abiword",
+	".arc"  :"application/octet-stream",
+	".avi"  :"video/x-msvideo",
+	".azw"  :"application/vnd.amazon.ebook",
+	".bin"  :"application/octet-stream",
+	".bz"   :"application/x-bzip",
+	".bz2"  :"application/x-bzip2",
+	".csh"  :"application/x-csh",
+	".css"  :"text/css",
+	".csv"  :"text/csv",
+	".doc"  :"application/msword",
+    ".docx" :"application/msword",
+	".epub" :"application/epub+zip",
+	".gif"  :"image/gif",
+	".htm"  :"text/html",
+	".ico"  :"image/x-icon",
+	".ics"  :"text/calendar",
+	".jar"  :"application/java-archive",
+	".jpeg" :"image/jpeg",
+	".js"   :"application/javascript",
+	".json" :"application/json",
+	".mid"  :"audio/midi",
+	".mpeg" :"video/mpeg",
+	".mpkg" :"application/vnd.apple.installer+xml",
+	".odp"  :"application/vnd.oasis.opendocument.presentation",
+	".ods"  :"application/vnd.oasis.opendocument.spreadsheet",
+	".odt"  :"application/vnd.oasis.opendocument.text",
+	".oga"  :"audio/ogg",
+	".ogv"  :"video/ogg",
+	".ogx"  :"application/ogg",
+	".pdf"  :"application/pdf",
+	".ppt"  :"application/vnd.ms-powerpoint",
+	".rar"  :"application/x-rar-compressed",
+	".rtf"  :"application/rtf",
+	".sh"   :"application/x-sh",
+	".svg"  :"image/svg+xml",
+	".swf"  :"application/x-shockwave-flash",
+	".tar"  :"application/x-tar",
+	".tif"  :"image/tiff",
+	".ttf"  :"font/ttf",
+	".vsd"  :"application/vnd.visio",
+	".wav"  :"audio/x-wav",
+	".weba" :"audio/webm",
+	".webm" :"video/webm",
+	".webp" :"image/webp",
+	".woff" :"font/woff",
+	".woff2":"font/woff2",
+	".xhtml":"application/xhtml+xml",
+	".xls"  :"application/vnd.ms-excel",
+	".xml"  :"application/xml",
+	".xul"  :"application/vnd.mozilla.xul+xml",
+	".zip"  :"application/zip",
+	".3gp"  :"video/3gpp",
+	".3g2"  :"video/3gpp2",
+	".7z"   :"application/x-7z-compressed",
+    ".tar.bz" :"application/x-gzip",
+    ".tar.bz2" :"application/x-gzip",
+    ".gz" :"application/x-gzip",
+    ".bzip" :"application/x-bzip",
+    
+	}

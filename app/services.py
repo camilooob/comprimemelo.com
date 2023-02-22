@@ -30,8 +30,14 @@ def register_file(file_data):
     )
 
     upload = Upload(
-        filename =file_data['filename'],
+        filenameOriginal =file_data['filenameOriginal'],
+        filenameCompress =file_data['filenameCompress'],
+        formatOriginal =file_data['formatOriginal'],
+        formatCompress =file_data['formatCompress'],
+        mimeTypeOriginal =file_data['mimeTypeOriginal'],
+        mimeTypeCompress =file_data['mimeTypeCompress'],
         path=file_data['path'],
+        pathOriginal=file_data['pathOriginal'],
         state=file_data['state'],
         data=file_data['data'],
         startDate=file_data['startDate'],
@@ -47,7 +53,7 @@ def register_file(file_data):
 def download_file_pdf(upload_id):
     #upload = Upload.query.get(1)
     upload = Upload.query.filter_by(id=upload_id).first()
-    return send_file(BytesIO(upload.data),  mimetype="application/pdf", download_name=upload.filename )
+    return send_file(BytesIO(upload.data),  mimetype=upload.mimeTypeCompress, download_name=upload.filenameCompress )
 
 def download_file(upload_id):
 
@@ -57,7 +63,19 @@ def download_file(upload_id):
     
         my_local_data = obFile.read()
 
-    return send_file(BytesIO(my_local_data),  mimetype="application/zip", download_name=upload.filename )
+    return send_file(BytesIO(my_local_data),  mimetype=upload.mimeTypeCompress, download_name=upload.filenameCompress )
+    
+
+
+def download_file_original(filename):
+    print(filename)
+    upload = Upload.query.filter_by(pathOriginal=filename).first()
+    print(upload.pathOriginal)
+    with open(upload.pathOriginal, 'rb') as obFile:
+    
+        my_local_data = obFile.read()
+
+    return send_file(BytesIO(my_local_data),  mimetype=upload.mimeTypeOriginal, download_name=upload.filenameOriginal )
     
 
 

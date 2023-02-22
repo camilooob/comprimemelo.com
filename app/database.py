@@ -56,18 +56,21 @@ class Upload(db.Model):
     __tablename__ = 'upload'
     
     id = db.Column(db.Integer, primary_key=True)
-    filename = db.Column(db.String(50))
+    filenameOriginal = db.Column(db.String(200))
+    filenameCompress = db.Column(db.String(200))
+    formatOriginal = db.Column(db.String(10))
+    formatCompress = db.Column(db.String(10))
+    mimeTypeOriginal = db.Column(db.String(100))
+    mimeTypeCompress = db.Column(db.String(100))
     state = db.Column(db.String(50))
     path = db.Column(db.String(1000))
+    pathOriginal = db.Column(db.String(1000))
     data = db.Column(db.LargeBinary)
     startDate = db.Column(db.DateTime(100), nullable=False)
     endDate = db.Column(db.DateTime(100), nullable=False)
     notified = db.Column(db.Boolean, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     user = db.relationship('User', backref=db.backref('upload', lazy=True))
-
-
-
 
 class Usuarios(db.Model):  
     __tablename__ = 'Usuarios'
