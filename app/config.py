@@ -29,7 +29,7 @@ def get_secret():
     secret = get_secret_value_response['SecretString']
     dic_secret = json.loads(secret)
     print(dic_secret['username'])
-    print(secret['password'])
+    print(dic_secret['password'])
 
     # Your code goes here.
 
