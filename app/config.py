@@ -1,6 +1,7 @@
 import os
 import boto3
 from botocore.exceptions import ClientError
+import json
 
 
 def get_secret():
@@ -26,8 +27,9 @@ def get_secret():
 
     # Decrypts secret using the associated KMS key.
     secret = get_secret_value_response['SecretString']
-    print(secret[0])
-    print(secret[1])
+    dic_secret = json.loads(test_string)
+    print(dic_secret['username'])
+    print(secret['password'])
 
     # Your code goes here.
 
