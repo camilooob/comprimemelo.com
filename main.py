@@ -1,3 +1,4 @@
+import threading
 from flask import render_template as render, flash, send_from_directory, request
 from app import create_app
 from app.database import Usuarios
@@ -11,16 +12,24 @@ from flask import Flask, jsonify, make_response
 from werkzeug.security import generate_password_hash, check_password_hash
 import uuid 
 import jwt
-from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token,get_jwt_identity
+from flask_mail import Mail,Message
 import datetime
 from functools import wraps
 from app.database import *
 
+from flask import copy_current_request_context
+import os
+import getpass
+
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = create_app()
-
+mail=Mail()
 jwt = JWTManager(app)
+mail.init_app(app)
+
 
 @app.errorhandler(404)
 def not_found(error):
@@ -108,8 +117,11 @@ def index4():
         'username':'fpintoc'
       }
       id=register_file(file_data)
-   
-      #return f"Archivo guardado correctamente. {id}"
+      
+
+      msg=Message('El Archivo se a comprimido satisfactoriamente', sender=app.config['MAIL_USERNAME'],recipients=[get_jwt_identity()])
+      mail.send(msg)
+      
       return f"{id}"
 
 @app.route('/app/files/compress/download/<upload_id>', methods=["GET", "POST"])
@@ -193,19 +205,30 @@ def token_required(f):
 
 @app.route('/api/auth/signup', methods=['POST'])
 def register():
+    print('variable PASSWORD_EMAIL_FP ')
+    print(os.environ.get('PASSWORD_EMAIL_FP'))
     email = request.form['email']
     test = Usuarios.query.filter_by(email=email).first()
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
     if test:
         return jsonify(message='That email already exists'), 409
     else:
-        first_name = request.form['first_name']
-        last_name = request.form['last_name']
+       
         password = request.form['password']
         user = Usuarios(first_name=first_name, last_name=last_name, email=email, password=password)
         db.session.add(user)
         db.session.commit()
-        return jsonify(message='User created successfully'), 201
+
+    msg=Message('El usuario se ha creado satisfactoriamente', sender=app.config['MAIL_USERNAME'],recipients=[email])
+    mail.send(msg)
     
+    return jsonify(message='User created successfully'), 201
+    
+def send_email(user_email, username, msg):
+    msg=Message(msg, sender=app.config['MAIL_USERNAME'],recipients=[user_email])
+
+
 
 @app.route('/api/auth/login', methods=['POST'])
 def loginToken():
