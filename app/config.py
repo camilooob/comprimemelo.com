@@ -27,7 +27,7 @@ def get_secret():
 
     # Decrypts secret using the associated KMS key.
     secret = get_secret_value_response['SecretString']
-    dic_secret = json.loads(test_string)
+    dic_secret = json.loads(secret)
     print(dic_secret['username'])
     print(secret['password'])
 
