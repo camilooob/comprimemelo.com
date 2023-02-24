@@ -40,7 +40,7 @@ def internal_server_error(error):
 
 @app.route('/')
 def index():
-    return render('index.html', **context)
+    return render('index.html')
 
 
 @app.route('/database')
