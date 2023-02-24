@@ -11,12 +11,11 @@ def get_user_by_username(username):
 def register_user(user_data):
     """ Método para registrar un usuario nuevo en la base de datos. """
     user = User(
-        name=user_data['name'],
-        lastName=user_data['lastName'],
+        name=user_data['first_name'],
+        lastName=user_data['last_name'],
         username=user_data['username'],
         email=user_data['email'],
         password=user_data['password'],
-        cellphone=user_data['cellphone'],
     )
     user.set_password(user_data['password'])
 
@@ -30,18 +29,18 @@ def register_file(file_data):
     )
 
     upload = Upload(
-        filenameOriginal =file_data['filenameOriginal'],
-        filenameCompress =file_data['filenameCompress'],
-        formatOriginal =file_data['formatOriginal'],
-        formatCompress =file_data['formatCompress'],
-        mimeTypeOriginal =file_data['mimeTypeOriginal'],
-        mimeTypeCompress =file_data['mimeTypeCompress'],
+        filenameOriginal =file_data['filename_original'],
+        filenameCompress =file_data['filename_compress'],
+        formatOriginal =file_data['format_original'],
+        formatCompress =file_data['format_compress'],
+        mimeTypeOriginal =file_data['type_original'],
+        mimeTypeCompress =file_data['type_compress'],
         path=file_data['path'],
-        pathOriginal=file_data['pathOriginal'],
+        pathOriginal=file_data['path_original'],
         state=file_data['state'],
         data=file_data['data'],
-        startDate=file_data['startDate'],
-        endDate=file_data['endDate'],
+        startDate=file_data['start_date'],
+        endDate=file_data['end_date'],
         notified=file_data['notified'],
         user=user
     )
