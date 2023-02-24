@@ -52,9 +52,8 @@ def register_file(file_data):
     return upload.id
 
 def download_file_pdf(upload_id):
-    #upload = Upload.query.get(1)
     upload = Upload.query.filter_by(id=upload_id).first()
-    return send_file(BytesIO(upload.data),  mimetype=upload.mimeTypeCompress, download_name=upload.filenameCompress )
+    return send_file(BytesIO(upload.data),  mimetype=upload.type_compress, download_name=upload.filename_compress)
 
 def download_file(upload_id):
 
@@ -64,19 +63,19 @@ def download_file(upload_id):
     
         my_local_data = obFile.read()
 
-    return send_file(BytesIO(my_local_data),  mimetype=upload.mimeTypeCompress, download_name=upload.filenameCompress )
+    return send_file(BytesIO(my_local_data),  mimetype=upload.type_compress, download_name=upload.filename_compress )
     
 
 
 def download_file_original(filename):
     print(filename)
     upload = Upload.query.filter_by(pathOriginal=filename).first()
-    print(upload.pathOriginal)
-    with open(upload.pathOriginal, 'rb') as obFile:
+    print(upload.path_original)
+    with open(upload.path_original, 'rb') as obFile:
     
         my_local_data = obFile.read()
 
-    return send_file(BytesIO(my_local_data),  mimetype=upload.mimeTypeOriginal, download_name=upload.filenameOriginal )
+    return send_file(BytesIO(my_local_data),  mimetype=upload.type_original, download_name=upload.filename_original)
     
 
 
