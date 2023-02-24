@@ -69,7 +69,7 @@ def download_file(upload_id):
 
 def download_file_original(filename):
     print(filename)
-    upload = Upload.query.filter_by(pathOriginal=filename).first()
+    upload = Upload.query.filter_by(path_original=filename).first()
     print(upload.path_original)
     with open(upload.path_original, 'rb') as obFile:
     
