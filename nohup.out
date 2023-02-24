@@ -1,0 +1,507 @@
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:41248
+ * Running on http://172.31.39.82:41248
+[33mPress CTRL+C to quit[0m
+ * Serving Flask app 'main'
+ * Debug mode: off
+Address already in use
+Port 500000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.31.39.82:5000
+[33mPress CTRL+C to quit[0m
+201.184.69.74 - - [23/Feb/2023 04:04:07] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:07] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:07] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:07] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:07] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:07] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:08] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:08] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:09] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:09] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:09] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:09] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:09] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:09] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:10] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:11] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:12] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:13] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:14] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:14] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:14] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:14] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:14] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:14] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:18] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:30] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:31] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:04:32] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:05:01] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET /static/css/main.css HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET /static/js/main.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:16:43] "GET /favicon.ico HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:17:01] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+201.184.69.74 - - [23/Feb/2023 04:18:20] "GET /favicon.ico HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:39] "GET / HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:39] "GET /static/css/main.css HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:39] "GET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:39] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:39] "GET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:39] "GET /static/js/main.js HTTP/1.1" 200 -
+104.28.92.31 - - [23/Feb/2023 04:19:40] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.140 - - [23/Feb/2023 04:41:19] "GET / HTTP/1.1" 200 -
+138.197.174.228 - - [23/Feb/2023 04:44:59] code 400, message Bad request syntax ("\x16\x03\x01\x00{\x01\x00\x00w\x03\x03\x01UÃóÉ/'\x86c6Ð5\x08\x17Åë,mî@\x86")
+138.197.174.228 - - [23/Feb/2023 04:44:59] "[35m[1m {  wUÃóÉ/'c6Ð5Åë,mî@[0m" HTTPStatus.BAD_REQUEST -
+138.197.174.228 - - [23/Feb/2023 04:44:59] code 400, message Bad request version ('À\x14À')
+138.197.174.228 - - [23/Feb/2023 04:44:59] "[35m[1m {  w©ÁÕ`¥Ç¯zê;}Ëíðs"ö©#U8¤æ  À/À+ÀÀÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+138.197.174.228 - - [23/Feb/2023 04:44:59] "GET / HTTP/1.1" 200 -
+92.118.39.82 - - [23/Feb/2023 05:00:36] "GET / HTTP/1.1" 200 -
+45.93.16.171 - - [23/Feb/2023 05:26:27] "GET / HTTP/1.1" 200 -
+45.93.16.171 - - [23/Feb/2023 05:29:25] "GET /recordings/ HTTP/1.1" 200 -
+205.210.31.22 - - [23/Feb/2023 05:35:09] "GET / HTTP/1.0" 200 -
+198.235.24.4 - - [23/Feb/2023 05:43:15] "GET / HTTP/1.1" 200 -
+198.235.24.160 - - [23/Feb/2023 06:48:33] "GET / HTTP/1.1" 200 -
+161.97.174.99 - - [23/Feb/2023 07:31:50] "GET /v2/ HTTP/1.1" 200 -
+89.248.165.84 - - [23/Feb/2023 09:00:14] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x02\x00\x00\x00')
+89.248.165.84 - - [23/Feb/2023 09:00:14] "[35m[1m  à          [0m" HTTPStatus.BAD_REQUEST -
+198.235.24.160 - - [23/Feb/2023 09:30:13] "GET / HTTP/1.1" 200 -
+162.142.125.9 - - [23/Feb/2023 09:38:46] code 400, message Bad request version ('À\x14À')
+162.142.125.9 - - [23/Feb/2023 09:38:46] "[35m[1m î  ê$Å5®Ù2þ3ÓÖÓÙ~þ¨>£zßaúÙÎé6 ÇÏ!§Þ¾ÿfÆö³ÞJêIÓåw¿Ï8'Ñc &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+162.142.125.9 - - [23/Feb/2023 09:38:47] "GET / HTTP/1.1" 200 -
+162.142.125.9 - - [23/Feb/2023 09:38:47] "GET / HTTP/1.1" 200 -
+162.142.125.9 - - [23/Feb/2023 09:38:47] code 505, message Invalid HTTP version (2.0)
+162.142.125.9 - - [23/Feb/2023 09:38:47] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+162.142.125.9 - - [23/Feb/2023 09:38:47] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:10] "GET / HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:14] "GET /static/css/main.css HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:14] "GET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:14] "GET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:14] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:14] "GET /static/js/main.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:15] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:17] "GET / HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:17] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:18] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:18] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:18] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:18] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:18] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:24] "GET /auth/login HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:24] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:24] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:24] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:08:24] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:24] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:08:25] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:13] "POST /auth/login HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:14] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:14] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:14] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:14] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:14] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:14] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "POST /auth/login HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:27] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:36] "GET /auth/signup HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:37] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:37] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:37] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:37] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:09:37] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:09:37] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:10:32] "POST /auth/signup HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:10:32] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:10:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:10:32] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:10:32] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:10:32] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:10:33] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "POST /auth/signup HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:11:38] "GET /favicon.ico HTTP/1.1" 200 -
+[2023-02-23 10:11:54,544] ERROR in app: Exception on /auth/signup [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: users.email
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/comprimemelo.com/app/auth/views.py", line 53, in signup
+    register_user(user_data)
+  File "/home/ubuntu/comprimemelo.com/app/services.py", line 24, in register_user
+    db.session.commit()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 538, in commit
+    return self._proxied.commit()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
+    self.session.flush()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4153, in flush
+    self._flush(objects)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4289, in _flush
+    with util.safe_reraise():
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4250, in _flush
+    flush_context.execute()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
+    rec.execute(self)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1188, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 485, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.email
+[SQL: INSERT INTO users (name, "lastName", username, email, password, is_admin, cellphone, avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('Camila', 'Pinto', 'Mariac', 'franklin.pinto@gmail.com', 'pbkdf2:sha256:260000$0b0M37TFpScb5gBk$aa925758d9144da162ef928e11fd40b45c552d7ffe90f0f8bed4685888359681', 0, '3187678086', None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+181.55.57.80 - - [23/Feb/2023 10:11:54] "POST /auth/signup HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:11:54] "GET /favicon.ico HTTP/1.1" 200 -
+[2023-02-23 10:12:14,372] ERROR in app: Exception on /auth/signup [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: users.email
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/comprimemelo.com/app/auth/views.py", line 53, in signup
+    register_user(user_data)
+  File "/home/ubuntu/comprimemelo.com/app/services.py", line 24, in register_user
+    db.session.commit()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/scoping.py", line 538, in commit
+    return self._proxied.commit()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
+    self.session.flush()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4153, in flush
+    self._flush(objects)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4289, in _flush
+    with util.safe_reraise():
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 4250, in _flush
+    flush_context.execute()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
+    rec.execute(self)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/orm/persistence.py", line 1188, in _emit_insert_statements
+    result = connection.execute(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 485, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.email
+[SQL: INSERT INTO users (name, "lastName", username, email, password, is_admin, cellphone, avatar) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('Camila', 'Pinto', 'Mariac', 'franklin.pinto@gmail.com', 'pbkdf2:sha256:260000$akgNXT5DSbE3FNK9$80b0ca50440531d4795002ae94b9531ab9b784ba2d69a21f914d092bef4529da', 0, '3187678086', None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+181.55.57.80 - - [23/Feb/2023 10:12:14] "POST /auth/signup HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 10:12:14] "GET /favicon.ico HTTP/1.1" 200 -
+193.118.55.162 - - [23/Feb/2023 11:26:29] "GET / HTTP/1.1" 200 -
+142.93.147.239 - - [23/Feb/2023 11:41:38] code 400, message Bad request version ('À\x14À')
+142.93.147.239 - - [23/Feb/2023 11:41:38] "[35m[1m {  w¿ßúÒü÷¹8HøÎ¸(>w «©Ù»pýç±¸  À/À+ÀÀÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+142.93.147.239 - - [23/Feb/2023 11:41:38] code 400, message Bad request version ('À\x14À')
+142.93.147.239 - - [23/Feb/2023 11:41:38] "[35m[1m {  w¬âwd ðâÓ¤ÃÉÖÔ½Õw{ß	¶ãädø  À/À+ÀÀÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+142.93.147.239 - - [23/Feb/2023 11:41:38] "GET / HTTP/1.1" 200 -
+181.155.50.250 - - [23/Feb/2023 12:01:20] "GET /auth/signup HTTP/1.1" 200 -
+181.155.50.250 - - [23/Feb/2023 12:01:22] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.155.50.250 - - [23/Feb/2023 12:01:22] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.155.50.250 - - [23/Feb/2023 12:01:22] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.155.50.250 - - [23/Feb/2023 12:01:23] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.155.50.250 - - [23/Feb/2023 12:01:24] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.155.50.250 - - [23/Feb/2023 12:01:25] "GET /favicon.ico HTTP/1.1" 200 -
+181.155.50.250 - - [23/Feb/2023 12:06:24] "GET /auth/signup HTTP/1.1" 200 -
+181.155.50.250 - - [23/Feb/2023 12:06:27] "GET /favicon.ico HTTP/1.1" 200 -
+167.94.138.47 - - [23/Feb/2023 12:20:23] code 400, message Bad request version ('À\x14À')
+167.94.138.47 - - [23/Feb/2023 12:20:23] "[35m[1m î  ê½\/*ýÖfÖâmK§'æKUªð[Ý 38å±Ôz'Y°0KMmko³'U½d×c5iÖ &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.47 - - [23/Feb/2023 12:20:24] "GET / HTTP/1.1" 200 -
+167.94.138.47 - - [23/Feb/2023 12:20:24] "GET / HTTP/1.1" 200 -
+167.94.138.47 - - [23/Feb/2023 12:20:24] code 505, message Invalid HTTP version (2.0)
+167.94.138.47 - - [23/Feb/2023 12:20:24] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.47 - - [23/Feb/2023 12:20:25] "GET /favicon.ico HTTP/1.1" 200 -
+167.248.133.61 - - [23/Feb/2023 13:53:24] code 400, message Bad request version ('À\x14À')
+167.248.133.61 - - [23/Feb/2023 13:53:24] "[35m[1m î  êwÞ/~.Ay_KÚí/5ÛºÙm«÷WxÁòF>S PªKjië¬i,B!ßo¬BwúQáÞ£»+EWé &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+167.248.133.61 - - [23/Feb/2023 13:53:25] "GET / HTTP/1.1" 200 -
+167.248.133.61 - - [23/Feb/2023 13:53:25] "GET / HTTP/1.1" 200 -
+167.248.133.61 - - [23/Feb/2023 13:53:26] code 505, message Invalid HTTP version (2.0)
+167.248.133.61 - - [23/Feb/2023 13:53:26] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.248.133.61 - - [23/Feb/2023 13:53:26] "GET /favicon.ico HTTP/1.1" 200 -
+198.235.24.7 - - [23/Feb/2023 14:20:19] "GET / HTTP/1.1" 200 -
+118.193.58.11 - - [23/Feb/2023 15:27:26] "GET / HTTP/1.1" 200 -
+118.193.58.11 - - [23/Feb/2023 15:27:27] code 400, message Bad request version ('À\x13À')
+118.193.58.11 - - [23/Feb/2023 15:27:27] "[35m[1m î  êZPÝuëRCE+Ç·{fú ùÜì4¾Ì1×) %óæCv{³ÊB;µyÁ(×Ý !Ä  íæSaÖ &À+À/À,À0Ì©Ì¨À	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.117 - - [23/Feb/2023 15:28:50] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03nSL«)FÕ\x1b%TH,^ò$¦wÕþv)$±\x15ô\x17NL~\x8c}3')
+167.94.138.117 - - [23/Feb/2023 15:28:50] "[35m[1m î  ênSL«)FÕ%TH,^ò$¦wÕþv)$±ôNL~}3 Öõ}:ÖTè[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.117 - - [23/Feb/2023 15:28:51] "GET / HTTP/1.1" 200 -
+167.94.138.117 - - [23/Feb/2023 15:28:51] "GET / HTTP/1.1" 200 -
+167.94.138.117 - - [23/Feb/2023 15:28:51] code 505, message Invalid HTTP version (2.0)
+167.94.138.117 - - [23/Feb/2023 15:28:51] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.117 - - [23/Feb/2023 15:28:51] "GET /favicon.ico HTTP/1.1" 200 -
+117.187.173.2 - - [23/Feb/2023 15:39:26] "GET / HTTP/1.1" 200 -
+117.187.173.2 - - [23/Feb/2023 15:39:29] "GET /favicon.ico HTTP/1.1" 200 -
+117.187.173.2 - - [23/Feb/2023 15:39:31] "GET /static/js/main.js HTTP/1.1" 200 -
+117.187.173.2 - - [23/Feb/2023 15:39:31] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+117.187.173.2 - - [23/Feb/2023 15:40:00] "GET /robots.txt HTTP/1.1" 200 -
+117.187.173.2 - - [23/Feb/2023 15:40:00] "GET /sitemap.xml HTTP/1.1" 200 -
+198.235.24.160 - - [23/Feb/2023 16:09:18] "GET / HTTP/1.1" 200 -
+18.130.5.252 - - [23/Feb/2023 16:26:54] code 400, message Bad request version ('À\x14À')
+18.130.5.252 - - [23/Feb/2023 16:26:54] "[35m[1m {  wkV6éâCîCë·|ôßÊ^vIÅNéb"~û  À/À+ÀÀÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+198.235.24.7 - - [23/Feb/2023 16:28:49] "GET / HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:02] "GET / HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:02] "GET /static/css/main.css HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:03] "GET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:03] "GET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:03] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:03] "GET /static/js/main.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:03] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "GET /auth/login HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:33:06] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "[32mPOST /auth/login HTTP/1.1[0m" 302 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "GET /eventos/home HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "GET /profile/picture/none HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:27] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "GET /eventos/comprimir HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "[36mGET /static/css/main.css HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "[36mGET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "[36mGET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "[36mGET /profile/picture/none HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:33] "GET /favicon.ico HTTP/1.1" 200 -
+[2023-02-23 16:34:43,547] ERROR in app: Exception on /eventos/compress [POST]
+Traceback (most recent call last):
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/comprimemelo.com/app/eventos/views.py", line 126, in compress
+    file.save(pathFile);
+  File "/home/ubuntu/venv/lib/python3.10/site-packages/werkzeug/datastructures.py", line 3002, in save
+    dst = open(dst, "wb")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ubuntu/comprimemelo.com/sin_comprimir/README.pdf'
+181.55.57.80 - - [23/Feb/2023 16:34:43] "POST /eventos/compress?filename=&format= HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 16:34:44] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.160 - - [23/Feb/2023 16:41:05] "GET / HTTP/1.1" 200 -
+167.94.138.119 - - [23/Feb/2023 18:01:35] code 400, message Bad request version ('À\x14À')
+167.94.138.119 - - [23/Feb/2023 18:01:35] "[35m[1m î  êUX,ÞeØQ¼rz}âª#á¼~,v©l½^G 8­@*úÌ]ÖÀ ªBHØd&S"ißÓ:w &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+167.94.138.119 - - [23/Feb/2023 18:01:36] "GET / HTTP/1.1" 200 -
+167.94.138.119 - - [23/Feb/2023 18:01:36] "GET / HTTP/1.1" 200 -
+167.94.138.119 - - [23/Feb/2023 18:01:36] code 505, message Invalid HTTP version (2.0)
+167.94.138.119 - - [23/Feb/2023 18:01:36] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.138.119 - - [23/Feb/2023 18:01:36] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.130 - - [23/Feb/2023 18:10:57] "GET / HTTP/1.1" 200 -
+198.235.24.157 - - [23/Feb/2023 18:27:53] "GET / HTTP/1.1" 200 -
+172.226.13.234 - - [23/Feb/2023 18:32:07] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:46] "GET /auth/signup HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:50] "GET /static/css/main.css HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:50] "GET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:50] "GET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:50] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:50] "GET /static/js/main.js HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 18:55:52] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 19:42:39] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.49 - - [23/Feb/2023 20:06:02] "GET / HTTP/1.1" 200 -
+198.235.24.128 - - [23/Feb/2023 20:27:51] "GET / HTTP/1.1" 200 -
+205.210.31.18 - - [23/Feb/2023 20:35:30] "GET / HTTP/1.1" 200 -
+167.94.146.60 - - [23/Feb/2023 21:08:45] code 400, message Bad request version ('À\x14À')
+167.94.146.60 - - [23/Feb/2023 21:08:45] "[35m[1m î  ê¾f:Åâ]×ÃTä#$<ÓÄÂ«-¨ìG8^º _îSùø*Bi¾üZe¢!N¿Óxq6¡»c;Ø &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ[0m" HTTPStatus.BAD_REQUEST -
+167.94.146.60 - - [23/Feb/2023 21:08:46] "GET / HTTP/1.1" 200 -
+167.94.146.60 - - [23/Feb/2023 21:08:46] "GET / HTTP/1.1" 200 -
+167.94.146.60 - - [23/Feb/2023 21:08:47] code 505, message Invalid HTTP version (2.0)
+167.94.146.60 - - [23/Feb/2023 21:08:47] "[35m[1mPRI * HTTP/2.0[0m" HTTPStatus.HTTP_VERSION_NOT_SUPPORTED -
+167.94.146.60 - - [23/Feb/2023 21:08:47] "GET /favicon.ico HTTP/1.1" 200 -
+198.235.24.160 - - [23/Feb/2023 21:38:14] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:33] "GET / HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:33] "GET /static/css/main.css HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:33] "GET /static/fontawesome/css/fontawesome.min.css?version=5.14.0 HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:33] "GET /static/fontawesome/css/solid.min.css?version=5.14.0 HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:33] "GET /static/node_modules/sweetalert2/dist/sweetalert2.all.min.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:33] "GET /static/js/main.js HTTP/1.1" 200 -
+201.184.69.74 - - [23/Feb/2023 22:00:34] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.53 - - [23/Feb/2023 22:16:12] "GET / HTTP/1.1" 200 -
+159.203.66.166 - - [23/Feb/2023 22:17:54] "GET / HTTP/1.0" 200 -
+159.203.66.166 - - [23/Feb/2023 22:23:01] "GET / HTTP/1.1" 200 -
+159.203.66.166 - - [23/Feb/2023 22:23:01] "GET /favicon.ico HTTP/1.1" 200 -
+181.55.57.80 - - [23/Feb/2023 22:32:48] "GET /favicon.ico HTTP/1.1" 200 -
+161.97.174.99 - - [23/Feb/2023 22:38:14] "GET /v2/ HTTP/1.1" 200 -
+45.55.41.208 - - [23/Feb/2023 23:37:50] "GET / HTTP/1.0" 200 -
+45.55.41.208 - - [23/Feb/2023 23:37:52] "GET / HTTP/1.1" 200 -
+45.55.41.208 - - [23/Feb/2023 23:37:52] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.52 - - [24/Feb/2023 00:28:33] "GET / HTTP/1.0" 200 -
+138.197.47.234 - - [24/Feb/2023 00:32:21] "GET / HTTP/1.0" 200 -
+138.197.47.234 - - [24/Feb/2023 00:32:32] "GET / HTTP/1.1" 200 -
+138.197.47.234 - - [24/Feb/2023 00:32:32] "GET /favicon.ico HTTP/1.1" 200 -
+205.210.31.145 - - [24/Feb/2023 00:41:20] "GET / HTTP/1.1" 200 -
+205.210.31.157 - - [24/Feb/2023 01:02:15] "GET / HTTP/1.1" 200 -
+198.235.24.49 - - [24/Feb/2023 01:05:30] "GET / HTTP/1.1" 200 -
+161.97.174.99 - - [24/Feb/2023 01:27:10] "GET /v2/ HTTP/1.1" 200 -
+161.97.174.99 - - [24/Feb/2023 01:32:48] "GET /v2/ HTTP/1.1" 200 -
+198.235.24.49 - - [24/Feb/2023 02:07:44] "GET / HTTP/1.1" 200 -
