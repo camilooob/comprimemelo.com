@@ -4,9 +4,9 @@ from .utils import remove_pictute_profile
 from flask import Flask, render_template, request, send_file
 from io import BytesIO
 
-def get_user_by_username(username):
+def get_user_by_username(email):
     """ Método para retornar el usuario a partir del username. """
-    return User.query.filter_by(username=username).first()
+    return User.query.filter_by(email=email).first()
 
 def register_user(user_data):
     """ Método para registrar un usuario nuevo en la base de datos. """
@@ -25,7 +25,7 @@ def register_user(user_data):
 def register_file(file_data):
     """ Método para registrar un archivo nuevo en la base de datos. """
     user = get_user_by_username(
-        file_data['username']
+        file_data['email']
     )
 
     upload = Upload(
@@ -42,7 +42,7 @@ def register_file(file_data):
         start_date=file_data['startDate'],
         end_date=file_data['endDate'],
         notified=file_data['notified'],
-        user=user
+        user_id=user
     )
     db.session.add(upload)
     db.session.commit()

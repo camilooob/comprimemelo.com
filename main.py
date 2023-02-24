@@ -93,7 +93,7 @@ def index4():
         'startDate': datetime.datetime.utcnow(),                
         'endDate': datetime.datetime.utcnow(),    
         'data': file.read(),
-        'username':'fpintoc'
+        'email':get_jwt_identity()
       }
       id=register_file(file_data)
       
