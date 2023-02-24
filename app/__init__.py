@@ -5,8 +5,7 @@ from flask_fontawesome import FontAwesome
 from .config import Config
 from .database import db
 from .auth import auth
-from .users import users
-from .users import uploads
+from .uploads import uploads
 from .models import UserModel
 
 login_manager = LoginManager()
