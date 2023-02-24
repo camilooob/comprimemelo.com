@@ -20,7 +20,7 @@ def login():
                 user_model = UserModel(user)
                 login_user(user_model)
                 flash("Bienvenido al sistema Compresión de Archivos ....", category="info")
-                return redirect(url_for("compress.home"))
+                return redirect(url_for("index"))
             else:
                 flash("Credenciales incorrectas", category="error")
         else:
