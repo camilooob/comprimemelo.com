@@ -12,7 +12,7 @@ def register_user(user_data):
     """ Método para registrar un usuario nuevo en la base de datos. """
     user = User(
         first_name=user_data['name'],
-        last_Name=user_data['lastName'],
+        last_name=user_data['lastName'],
         username=user_data['username'],
         email=user_data['email'],
         password=user_data['password']
@@ -29,18 +29,18 @@ def register_file(file_data):
     )
 
     upload = Upload(
-        filenameOriginal =file_data['filenameOriginal'],
-        filenameCompress =file_data['filenameCompress'],
-        formatOriginal =file_data['formatOriginal'],
-        formatCompress =file_data['formatCompress'],
-        mimeTypeOriginal =file_data['mimeTypeOriginal'],
-        mimeTypeCompress =file_data['mimeTypeCompress'],
+        filename_original =file_data['filenameOriginal'],
+        filename_compress =file_data['filenameCompress'],
+        format_iriginal =file_data['formatOriginal'],
+        format_compress =file_data['formatCompress'],
+        type_original =file_data['mimeTypeOriginal'],
+        type_compress =file_data['mimeTypeCompress'],
         path=file_data['path'],
-        pathOriginal=file_data['pathOriginal'],
+        path_original=file_data['pathOriginal'],
         state=file_data['state'],
         data=file_data['data'],
-        startDate=file_data['startDate'],
-        endDate=file_data['endDate'],
+        start_date=file_data['startDate'],
+        end_date=file_data['endDate'],
         notified=file_data['notified'],
         user=user
     )
