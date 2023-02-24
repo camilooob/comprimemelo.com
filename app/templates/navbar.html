@@ -8,18 +8,6 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="{{ url_for('index') }}">
-            {% if current_user.is_authenticated %}
-                <div class="figure-profile">
-                    <img width="40" width="40"  class="img-circle icon-nabvar" alt="profile-picture"
-                    src="{{ url_for('picture_profile', filename=current_user.avatar) 
-                            if current_user.avatar else 
-                            url_for('picture_profile', filename='none') 
-                        }}" 
-                    >
-                </div>
-            {% else %}
-                Cambiar Tema
-            {% endif %}
         </a>
       </div>
 
