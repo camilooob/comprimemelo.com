@@ -15,7 +15,6 @@ from flask_mail import Mail,Message
 import datetime
 from functools import wraps
 from app.database import *
-import request
 from flask import copy_current_request_context
 import os
 import getpass
