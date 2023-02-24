@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzAyNDgyMSwianRpIjoiM2FkMWQ4MDctMDRiYy00Njg4LTlhZmMtYjljODg0NDNiYWZjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcwMjQ4MjEsImV4cCI6MTY3NzAyNTcyMX0.fflZfb1Inq-y3KXJ1HaNfBdjgEWg1THUVNApQ731GdA",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzI1OTIxMiwianRpIjoiZTYwZTUxNWMtYTFkYy00ZTQ3LTgzOWEtZGRhNjg0NTM1N2M1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZyYW5rbGluLnBpbnRvY0B1bmlhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcyNTkyMTIsImV4cCI6MTY3NzI2MDExMn0.tTVxtnccvJjLreuQzZwBDwuWK6agbIIaqcinlgtPcLg",
 							"type": "string"
 						}
 					]
@@ -37,13 +37,11 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/app/files/compress/upload?format=.rar",
+					"raw": "http://comprimemelo.com:5000/app/files/compress/upload?format=.rar",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"comprimemelo",
+						"com"
 					],
 					"port": "5000",
 					"path": [
@@ -59,7 +57,7 @@
 						}
 					]
 				},
-				"description": "permite cargar un archivo y comprimirlo en el formato deseado, el formato se especifica como un query param con la llave \"format\", los posibles valores de formato de compresión son: .zip .z7 .rar .bzip .tar .gz .tar.gz .tar.bz2\n\nel archivo se debe cargar con la llave \"file\" tipo input file, en Body como forma-data"
+				"description": "Permite cargar un archivo y comprimirlo en el formato deseado, el formato se especifica como un query param con la llave \"format\", los posibles valores de formato de compresión son: .zip .z7 .rar .bzip .tar .gz .tar.gz .tar.bz2\n\nel archivo se debe cargar con la llave \"file\" tipo input file, en Body como forma-data"
 			},
 			"response": []
 		},
@@ -111,7 +109,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzAyNTEzMSwianRpIjoiNmNkY2UzMWMtYWZkOC00ZDgyLWFiMDAtZjEzZDEzNjM0YjJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcwMjUxMzEsImV4cCI6MTY3NzAyNjAzMX0.vAik69XkWmcJQzp_sIpxfpl9MoE60aQNX1TqlP8C5sw",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzI1OTIxMiwianRpIjoiZTYwZTUxNWMtYTFkYy00ZTQ3LTgzOWEtZGRhNjg0NTM1N2M1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZyYW5rbGluLnBpbnRvY0B1bmlhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcyNTkyMTIsImV4cCI6MTY3NzI2MDExMn0.tTVxtnccvJjLreuQzZwBDwuWK6agbIIaqcinlgtPcLg",
 							"type": "string"
 						}
 					]
@@ -119,13 +117,11 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/app/files/compress/download/1",
+					"raw": "http://comprimemelo.com:5000/app/files/compress/download/6",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"comprimemelo",
+						"com"
 					],
 					"port": "5000",
 					"path": [
@@ -133,7 +129,7 @@
 						"files",
 						"compress",
 						"download",
-						"1"
+						"6"
 					]
 				},
 				"description": "permite descargar el archivo comprimido a partir de id, que fue obtenido en la respuesta del servicio de uploadFile"
@@ -148,27 +144,25 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3Njk0MjcwOSwianRpIjoiNDRkNTMyMDctNzQ2Yi00MThhLWEwYzYtYTBkYzljNjI2ZGNjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImYucGludG9jQHVuaWRhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzY5NDI3MDksImV4cCI6MTY3Njk0MzYwOX0.UUrf1QynVodE0qjbFw7_6BJLGQ0Eq3yQMqVvEOAq1lQ",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NzI2MDEzNSwianRpIjoiOTQ1OWEwMTAtODJiZS00ZWY3LWFiNjctNmQ1MTY5NWFlYjE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImZyYW5rbGluLnBpbnRvY0B1bmlhbmRlcy5lZHUuY28iLCJuYmYiOjE2NzcyNjAxMzUsImV4cCI6MTY3NzI2MTAzNX0.UDF_UOTMWyr6xwPLpOUQb3K8SDvFnfbHQptRDwunw-M",
 							"type": "string"
 						}
 					]
 				},
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/files/myfile.txt",
+					"raw": "http://comprimemelo.com:5000/api/files/4-ComputacionDistribuida-Hadoop.pdf",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"comprimemelo",
+						"com"
 					],
 					"port": "5000",
 					"path": [
 						"api",
 						"files",
-						"myfile.txt"
+						"4-ComputacionDistribuida-Hadoop.pdf"
 					]
 				},
 				"description": "permite descargar el archivo comprimido a partir de id, que fue obtenido en la respuesta del servicio de uploadFile"
@@ -185,7 +179,7 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "f.pintoc@unidandes.edu.co",
+							"value": "f.pintoc@uniandes.edu.co",
 							"type": "text"
 						},
 						{
@@ -202,6 +196,11 @@
 							"key": "password",
 							"value": "pwd",
 							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "f.pintoc",
+							"type": "text"
 						}
 					],
 					"options": {
@@ -211,13 +210,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/auth/signup",
+					"raw": "http://comprimemelo.com:5000/api/auth/signup",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"comprimemelo",
+						"com"
 					],
 					"port": "5000",
 					"path": [
@@ -243,7 +240,7 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "f.pintoc@unidandes.edu.co",
+							"value": "f.pintoc@uniandes.edu.co",
 							"type": "text"
 						},
 						{
@@ -259,13 +256,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:5000/api/auth/login",
+					"raw": "http://comprimemelo.com:5000/api/auth/login",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"comprimemelo",
+						"com"
 					],
 					"port": "5000",
 					"path": [
