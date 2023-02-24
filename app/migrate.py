@@ -5,18 +5,11 @@ def create_db():
     db.drop_all()
     db.create_all()
 
+# Function to initialize the database from a script.
 def init_db():
-    """ Método de inicialización de nuestra base de datos. """
-    create_db()
-    # user admin app
-    admin = User(
-        name="Franklin",
-        lastName="Pinto",
-        username="fpintoc",
-        email="franklin.pinto@gmail.com",
-        is_admin=True,
-        cellphone="3187678086",
-    )
-    admin.set_password("mono2023")
-    db.session.add(admin)
+    db = get_db()
+    with open('schema.sql', 'r') as f:
+        with db.cursor() as cursor:
+            cursor.execute(f.read(), multi=True)
+        db.commit()
     db.session.commit()
