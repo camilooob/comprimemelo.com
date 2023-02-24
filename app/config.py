@@ -50,11 +50,11 @@ class Config:
     # Decrypts secret using the associated KMS key.
     secret_comprimelo = get_secret_value_response['SecretString']
     dic_secret_comprimelo = json.loads(secret_comprimelo)
-    username_c = dic_secret['username']
-    password_c = dic_secret['password']
-    db_host_compri_c = dic_secret_comprimelo['db_host_compri']
-    db_name_c = dic_secret_comprimelo['db_name']
-    db_port_c = dic_secret_comprimelo['db_port']
+    username_c = str(dic_secret['username'])
+    password_c = str(dic_secret['password'])
+    db_host_compri_c = str(dic_secret_comprimelo['db_host_compri'])
+    db_name_c = str(dic_secret_comprimelo['db_name'])
+    db_port_c = int(dic_secret_comprimelo['db_port'])
     jwt_secret_c = str(dic_secret_comprimelo['jwt_secret'])
     mail_server_c = str(dic_secret_comprimelo['mail_server'])
     mail_port_c = int(dic_secret_comprimelo['mail_port'])
