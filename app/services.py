@@ -27,6 +27,7 @@ def register_file(file_data):
     user = get_user_by_username(
         file_data['email']
     )
+    print(user)
 
     upload = Upload(
         filename_original =file_data['filenameOriginal'],
