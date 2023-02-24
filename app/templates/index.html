@@ -5,8 +5,10 @@
     index
 {% endblock %}
 {% block content %}
-    <div class="container">
-        <h2>EVENTOS GESTIONADOS POR ABC</h2>
+    <div class="container" >
+        <div class="bd-example" align="middle">
+           <img alin alt="principal" src="{{url_for('static',filename='images/logo.jpg')}}" align="middle" />
+        </div>
         {% if current_user.is_authenticated %}
         <div class="row">
               {% for idea in public_eventos %}
@@ -14,7 +16,11 @@
             {% endfor %}
         </div>
         {% else %}
+        <div class="bd-example" align="middle">
+            <br>
+            <br>
             <li><a href="{{ url_for('auth.login') }}">Dar clic aqui para autenticarse</a></li>
+        </div>
         {% endif %}
     </div>
 {% endblock %}
