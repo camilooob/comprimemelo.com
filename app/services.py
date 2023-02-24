@@ -31,7 +31,7 @@ def register_file(file_data):
     upload = Upload(
         filename_original =file_data['filenameOriginal'],
         filename_compress =file_data['filenameCompress'],
-        format_iriginal =file_data['formatOriginal'],
+        format_original =file_data['formatOriginal'],
         format_compress =file_data['formatCompress'],
         type_original =file_data['mimeTypeOriginal'],
         type_compress =file_data['mimeTypeCompress'],
