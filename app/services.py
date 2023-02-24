@@ -44,7 +44,7 @@ def register_file(file_data):
         notified=file_data['notified'],
         user_id=user
     )
-    print(upload)
+    print(str(upload.user_id))
     db.session.add(upload)
     db.session.commit()
     
