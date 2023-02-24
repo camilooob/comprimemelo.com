@@ -5,8 +5,8 @@ from flask_fontawesome import FontAwesome
 from .config import Config
 from .database import db
 from .auth import auth
-from .eventos import eventos
 from .users import users
+from .users import uploads
 from .models import UserModel
 
 login_manager = LoginManager()
@@ -24,7 +24,7 @@ def create_app():
     
     app.config.from_object(Config)
     app.register_blueprint(auth)
-    app.register_blueprint(eventos)
+    app.register_blueprint(uploads)
     app.register_blueprint(users)
 
     login_manager.init_app(app)
