@@ -104,7 +104,7 @@ class User(db.Model):
     is_admin = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
-        return '<User %r>' % self.id
+        return self
     
     def set_password(self, password):
         self.password = generate_password_hash(password)

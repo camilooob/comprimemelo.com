@@ -6,7 +6,6 @@ from io import BytesIO
 
 def get_user_by_username(email):
     """ Método para retornar el usuario a partir del username. """
-    print(User.query.filter_by(email=email).first())
     return User.query.filter_by(email=email).first()
 
 def register_user(user_data):
@@ -44,7 +43,7 @@ def register_file(file_data):
         start_date=file_data['startDate'],
         end_date=file_data['endDate'],
         notified=file_data['notified'],
-        user_id=user
+        user_id=user.id
     )
     print(str(upload.user_id))
     db.session.add(upload)
