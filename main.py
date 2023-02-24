@@ -15,7 +15,7 @@ from flask_mail import Mail,Message
 import datetime
 from functools import wraps
 from app.database import *
-
+import request
 from flask import copy_current_request_context
 import os
 import getpass
@@ -41,23 +41,8 @@ def internal_server_error(error):
 
 @app.route('/')
 def index():
-    context = {
-        'public_eventos': list_public_eventos()
-    }
     return render('index.html', **context)
 
-@app.template_filter()
-def visibility_public_or_private(visibility):
-    """ Filtro de visibilidad de eventos. """
-    return 'Pública'  if visibility == True else 'Privada'
-
-@app.route('/profile/picture/<path:filename>')
-def picture_profile(filename):
-    base_url = 'uploads/profile_pictures'
-    if filename == 'none':
-        filename = 'user_default.JPG'
-        
-    return send_from_directory(base_url, filename)
 
 @app.route('/database')
 def database():
@@ -65,17 +50,16 @@ def database():
     return "base de datos creada correctamente. """
 
 
-
 @app.route('/app/v1/upload', methods=['GET', 'POST'])
 def upload():
-   
+
     return render('upload.html')
 
 @app.route('/app/files/compress/upload',methods=['POST'])
 @jwt_required()
 def index4():
       url_params = request.args
-  
+
     # Retrieve parameters which are present
       format = url_params['format']
 
@@ -94,8 +78,6 @@ def index4():
       with zipfile.ZipFile(pathZip, 'w') as zf:
           zf.write(pathFile,arcname=file.filename)
       print('...compression done!')
-      
-      
 
       file_data = {
         #'filename': file.filename.replace(extension,'.zip'),
@@ -192,7 +174,7 @@ def token_required(f):
 
        try:  
           data = jwt.decode(token, app.config[SECRET_KEY]) 
-          current_user = Users.query.filter_by(public_id=data['public_id']).first()  
+          current_user = User.query.filter_by(public_id=data['public_id']).first()  
        except:  
           return jsonify({'message': 'token is invalid'})  
 
@@ -206,7 +188,7 @@ def register():
     print('variable PASSWORD_EMAIL_FP ')
     print(os.environ.get('PASSWORD_EMAIL_FP'))
     email = request.form['email']
-    test = Usuarios.query.filter_by(email=email).first()
+    test = User.query.filter_by(email=email).first()
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     if test:
@@ -214,7 +196,7 @@ def register():
     else:
        
         password = request.form['password']
-        user = Usuarios(first_name=first_name, last_name=last_name, email=email, password=password)
+        user = User(first_name=first_name, last_name=last_name, email=email, password=password)
         db.session.add(user)
         db.session.commit()
 
@@ -237,7 +219,7 @@ def loginToken():
         email = request.form['email']
         password = request.form['password']
 
-    test = Usuarios.query.filter_by(email=email, password=password).first()
+    test = User.query.filter_by(email=email, password=password).first()
     if test:
         access_token = create_access_token(identity=email)
         return jsonify(message='Login Successful', access_token=access_token)
