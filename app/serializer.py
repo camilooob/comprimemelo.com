@@ -4,18 +4,11 @@ from .database import *
 class UserSchema(SQLAlchemyAutoSchema):
     class Meta:
         model: User
-        fields = ('id', 'name', 'lastName', 'username', 'email', 'password', 'is_admin', 'cellphone', 'avatar',)
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password', 'is_admin')
         load_instance = True
 
-class CategorySchema(SQLAlchemyAutoSchema):
+class UploadSchema(SQLAlchemyAutoSchema):
     class Meta:
-        model: Category
-        fields = ('id', 'name',)
+        model: Upload
+        fields = ('id', 'filename_original', 'filename_compress','format_original','format_compress','type_original','type_compress','state','path','path_original','data','start_date','end_date','notified','user_id','user')
         load_intance = True
-
-class eventoschema(SQLAlchemyAutoSchema):
-    class Meta:
-        model: Idea
-        fields = ('id', 'title', 'description','site','startDate','endDate', 'is_public', 'modality','category_id', 'category', 'user_id', 'user', )
-        include_relationships = True
-        load_instance = True
