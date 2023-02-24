@@ -17,9 +17,83 @@ from resources.tag import blp as TagBlueprint
 from resources.user import blp as UserBlueprint
 from blocklist import BLOCKLIST
 from dotenv import load_dotenv
+import os
+import boto3
+from botocore.exceptions import ClientError
+import json
 
 
 def create_app(db_url=None):
+    
+	
+
+    secret_name = "rds!cluster-6b7d7cb4-5a52-4fff-9ee4-5c1bf54c7919"
+    region_name = "us-east-2"
+
+    # Create a Secrets Manager client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except ClientError as e:
+        # For a list of exceptions thrown, see
+        # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+        raise e
+
+    # Decrypts secret using the associated KMS key.
+    secret = get_secret_value_response['SecretString']
+    dic_secret = json.loads(secret)
+    secret_name = "secret_comprimelo"
+    region_name = "us-east-2"
+
+    # Create a Secrets Manager client
+    session = boto3.session.Session()
+    client = session.client(
+        service_name='secretsmanager',
+        region_name=region_name
+    )
+
+    try:
+        get_secret_value_response = client.get_secret_value(
+            SecretId=secret_name
+        )
+    except ClientError as e:
+        # For a list of exceptions thrown, see
+        # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+        raise e
+
+    # Decrypts secret using the associated KMS key.
+    secret_comprimelo = get_secret_value_response['SecretString']
+    dic_secret_comprimelo = json.loads(secret_comprimelo)
+    username_c = str(dic_secret['username'])
+    password_c = str(dic_secret['password'])
+    db_host_compri_c = str(dic_secret_comprimelo['db_host_compri'])
+    db_name_c = str(dic_secret_comprimelo['db_name'])
+    db_port_c = int(dic_secret_comprimelo['db_port'])
+    jwt_secret_c = str(dic_secret_comprimelo['jwt_secret'])
+    mail_server_c = str(dic_secret_comprimelo['mail_server'])
+    mail_port_c = int(dic_secret_comprimelo['mail_port'])
+    mail_username_c = str(dic_secret_comprimelo['mail_username'])
+    mail_password_c = str(dic_secret_comprimelo['mail_password'])
+
+    # Your code goes here.
+
+
+    """ Clase de configuración de flask. """
+    mysql_connect = 'mysql://{}:{}@{}/{}'.format(username_c,password_c,db_host_compri_c,db_name_c
+
+	
+	
+	
+	
+	
+	
     app = Flask(__name__)
     load_dotenv()
     app.config["PROPAGATE_EXCEPTIONS"] = True
@@ -31,13 +105,13 @@ def create_app(db_url=None):
     app.config[
         "OPENAPI_SWAGGER_UI_URL"
     ] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-    app.config["SQLALCHEMY_DATABASE_URI"] = db_url or os.getenv("DATABASE_URL", "sqlite:///data.db")
+    app.config["SQLALCHEMY_DATABASE_URI"] = mysql_connect
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
     migrate = Migrate(app, db)
     api = Api(app)
 
-    app.config["JWT_SECRET_KEY"] = "jose"
+    app.config["JWT_SECRET_KEY"] = jwt_secret_c
     jwt = JWTManager(app)
 
 @jwt.additional_claims_loader
