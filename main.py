@@ -190,6 +190,7 @@ def register():
     test = User.query.filter_by(email=email).first()
     first_name = request.form['first_name']
     last_name = request.form['last_name']
+    username = request.form['username']
     if test:
         return jsonify(message='That email already exists'), 409
     else:
