@@ -1,8 +1,6 @@
 import threading
 from flask import render_template as render, flash, send_from_directory, request
-from app import create_app
-from app.database import Usuarios
-from app.database import init_db
+from app import *
 from app.services import list_public_eventos, download_file, download_file, download_file_pdf,register_file,download_file_original
 import zipfile
 import os.path
