@@ -19,8 +19,8 @@ def login():
             if user.check_password(login_form.password.data):
                 user_model = UserModel(user)
                 login_user(user_model)
-                flash("Bienvenido al sistema de eventos ....", category="info")
-                return redirect(url_for("eventos.home"))
+                flash("Bienvenido al sistema Compresión de Archivos ....", category="info")
+                return redirect(url_for("index"))
             else:
                 flash("Credenciales incorrectas", category="error")
         else:
