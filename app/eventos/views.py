@@ -13,6 +13,7 @@ import os.path
 import time  
 import datetime
 import os
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token,get_jwt_identity
 
 def contextHome():
     username = current_user.id
@@ -84,7 +85,7 @@ def comprimir():
     return render('/eventos/homeUpload.html')
 
 @eventos.route('/compress', methods=['GET', 'POST'])
-#@login_required
+@login_required
 def compress():
     
     file = request.files['file']
@@ -121,7 +122,8 @@ def compress():
                 'startDate': datetime.datetime.utcnow(),                
                 'endDate': datetime.datetime.utcnow(),    
                 'data': file.read(),
-                'username':'fpintoc'
+                'username':'fpintoc',
+                'email':get_jwt_identity()
             }
     id=register_file(file_data)
 
