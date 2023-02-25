@@ -61,7 +61,7 @@ def signup():
         else:
             flash("El usuario ya existe en el sistema!", category="warning")
 
-    return render('auth/signup.html', **context)
+    return render('auth/home.html', **context)
 
 
 @auth.route('/logout')
