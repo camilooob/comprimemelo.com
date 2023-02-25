@@ -11,8 +11,8 @@ login_manager = LoginManager()
 login_manager.login_view = "auth.login"
 
 @login_manager.user_loader
-def load_user(username):
-    return UserModel.get(username)
+def load_user(email):
+    return UserModel.get(email)
 
 def create_app():
     """ Método para la creación de la app de Flask. """

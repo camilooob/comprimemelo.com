@@ -8,7 +8,7 @@ class UserModel(UserMixin):
         self.password = user_data.password
 
     @staticmethod
-    def get(username):
+    def get(email):
         """ Método para obtener el usuario a partir del username. """
-        user_data = get_user_by_username(username)
+        user_data = get_user_by_username(email)
         return UserModel(user_data)
