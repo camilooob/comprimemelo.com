@@ -12,6 +12,7 @@ login_manager.login_view = "auth.login"
 
 @login_manager.user_loader
 def load_user(email):
+    print(f' email en load_user :: {email}')
     return UserModel.get(email)
 
 def create_app():
