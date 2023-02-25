@@ -4,7 +4,6 @@ from .services import get_user_by_username
 class UserModel(UserMixin):
     """ Model User - login. """
     def __init__(self, user_data):
-        print(str(user_data))
         self.id = user_data
         self.password = user_data.password
 
