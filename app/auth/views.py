@@ -52,7 +52,7 @@ def signup():
 
             register_user(user_data)
             user_model = UserModel(
-                get_user_by_username(register_form.username.data)
+                get_user_by_username(register_form.email.data)
             )
             login_user(user_model)
             flash(" Registro exitoso, bienvenido", category="info")
