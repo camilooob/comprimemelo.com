@@ -57,7 +57,7 @@ def signup():
             
             login_user(user_model)
             flash(" Registro exitoso, bienvenido", category="info")
-            return redirect(url_for("eventos.home"))
+            render('eventos/home.html', **context)
         else:
             flash("El usuario ya existe en el sistema!", category="warning")
 
