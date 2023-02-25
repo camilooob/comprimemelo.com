@@ -22,7 +22,7 @@ class RegisterForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     """ Formulario de login. """
-    username = StringField("Username", validators=[DataRequired(), Length(min=5, max=10)])
+    username = StringField("Username", validators=[DataRequired(), Length(min=5, max=100)])
     password = PasswordField("Password", validators=[DataRequired(), Length(min=6, max=10)])
 
     submit = SubmitField("Login")
