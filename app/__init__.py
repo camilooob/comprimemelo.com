@@ -6,6 +6,8 @@ from .config import Config
 from .database import db
 from .auth import auth
 from .models import UserModel
+from .eventos import eventos
+from .users import users
 
 login_manager = LoginManager()
 login_manager.login_view = "auth.login"
@@ -22,6 +24,8 @@ def create_app():
     
     app.config.from_object(Config)
     app.register_blueprint(auth)
+    app.register_blueprint(eventos)
+    app.register_blueprint(users)
     login_manager.init_app(app)
     
     db.init_app(app)
