@@ -38,7 +38,7 @@ def signup():
     }
 
     if register_form.validate_on_submit():
-        user = get_user_by_username(register_form.username.data)
+        user = get_user_by_username(register_form.email.data)
         if user is None:
             # Proceso de registro de usuario
             user_data = {
@@ -54,6 +54,7 @@ def signup():
             user_model = UserModel(
                 get_user_by_username(register_form.email.data)
             )
+            
             login_user(user_model)
             flash(" Registro exitoso, bienvenido", category="info")
             return redirect(url_for("eventos.home"))
