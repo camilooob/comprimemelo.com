@@ -1,7 +1,6 @@
 from flask import render_template as render, flash, url_for, redirect
 from flask_login import login_required, current_user
 from .form import UpdateImageProfileForm
-from app.services import update_profile_picture
 from werkzeug.utils import secure_filename
 from app.utils import random_name
 from . import users
@@ -23,7 +22,7 @@ def profile():
             random_name(username) + "." + ext
         )
         profile_form.upload.data.save("app/uploads/profile_pictures/" + filename)
-        update_profile_picture(username, filename)
+        #update_profile_picture(username, filename)
         flash("Foto de perfil cargada exitosamente !!", category="success")
 
         return redirect(url_for("users.profile"))
