@@ -18,6 +18,7 @@ from app.database import *
 from flask import copy_current_request_context
 import os
 import getpass
+from celery import Celery
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -289,3 +290,98 @@ DIC_MIME_TYPES = {
     ".bzip" :"application/x-bzip",
     
 	}
+
+app.config['CELERY_BROKER_URL'] = 'amqp://localhost//'  # RabbitMQ broker URL
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'  # Redis backend URL
+
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'], backend=app.config['CELERY_RESULT_BACKEND'])
+celery.conf.update(app.config)
+
+# Define a Celery task to list the user's tasks
+@celery.task
+def list_tasks(user_id):
+    # Replace this with your code to fetch the user's tasks from a database or other data source
+    tasks = [{'id': 1, 'description': 'Task 1'}, {'id': 2, 'description': 'Task 2'}]
+    return tasks
+
+# Define the /api/tasks endpoint
+@app.route('/api/tasks', methods=['GET'])
+def get_tasks():
+    user_id = 123  # Replace this with your code to fetch the user's ID from the request or session
+    task = list_tasks.delay(user_id)  # Call the Celery task asynchronously
+    result = task.get()  # Wait for the task to complete and get the result
+    return jsonify({'tasks': result})
+
+@app.route('/api/tasks', methods=['POST'])
+@auth.login_required
+def create_task():
+    if 'fileName' not in request.files or 'newFormat' not in request.form:
+        return {'message': 'Missing parameters'}, 400
+    
+    file = request.files['fileName']
+    new_format = request.form['newFormat']
+    
+    if file and allowed_file(file.filename):
+        task_id = convert_format.delay(file.filename, new_format)
+        
+        return {'message': 'Task created', 'task_id': task_id}, 200
+    else:
+        return {'message': 'Invalid file format'}, 400
+    
+@app.route('/api/tasks/<int:id_task>', methods=['GET'])
+@auth_required
+def get_task(id_task):
+    task = get_task_info.delay(id_task)
+    return jsonify({'task_id': task.id}), 202
+
+@app.route('/api/tasks/<int:id_task>', methods=['DELETE'])
+def delete_task(id_task):
+    # verificar si el usuario está autorizado
+    if not is_authorized(request):
+        return jsonify({'message': 'No estás autorizado para acceder a este recurso'}), 401
+    
+    # enviar tarea de eliminación al worker de celery
+    task = celery.send_task('tasks.delete_task', args=[id_task])
+    
+    return jsonify({'message': f'Tarea {id_task} eliminada con éxito'}), 200
+
+# función para verificar si el usuario está autorizado
+def is_authorized(request):
+    # implementar verificación de autorización aquí
+    # devolver True si el usuario está autorizado y False en caso contrario
+    return True
+
+# tarea de eliminación de tarea
+@celery.task(name='tasks.delete_task')
+def delete_task(id_task):
+    # implementar eliminación de tarea aquí
+    pass
+
+def eliminar_archivos(tarea):
+    # eliminar los archivos originales y convertidos de la tarea
+    os.remove(tarea.archivo_original)
+    os.remove(tarea.archivo_convertido)
+    
+	
+@app.route('/eliminar_archivo/<int:id_tarea>/<string:token>', methods=['DELETE'])
+def eliminar_archivo(id_tarea, token):
+    # verificar si el token es válido
+    # si el token no es válido, devolver un error de autenticación
+    if not verificar_token(token):
+        return jsonify({'error': 'Autenticación inválida'})
+
+    # verificar si la tarea existe y su estado es 'Disponible'
+    tarea = obtener_tarea(id_tarea)
+    if tarea is None or tarea.estado != 'Disponible':
+        return jsonify({'error': 'La tarea no existe o su estado no es "Disponible"'})
+
+    # eliminar los archivos originales y convertidos
+    eliminar_archivos(tarea)
+
+    # actualizar el estado de la tarea a 'Eliminado'
+    tarea.estado = 'Eliminado'
+    guardar_tarea(tarea)
+
+    # devolver una respuesta exitosa
+    return jsonify({'mensaje': 'Los archivos se han eliminado exitosamente'})
+
