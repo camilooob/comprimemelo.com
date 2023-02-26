@@ -132,5 +132,15 @@ class Upload(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
     user = db.relationship('User', backref=db.backref('upload', lazy=True))
 
+class Task(db.Model):
+	##create a python fuction to create a task
+	__tablename__ = 'task'
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(200))
+	description = db.Column(db.String(200))
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete='CASCADE'), nullable=False)
+	user = db.relationship('User', backref=db.backref('task', lazy=True))
+	#add column to status with default value uploaded
+	status = db.Column(db.String(50), default='uploaded')
 
 
