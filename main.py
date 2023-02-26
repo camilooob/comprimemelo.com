@@ -329,12 +329,13 @@ def create_task():
         return {'message': 'Invalid file format'}, 400
     
 @app.route('/api/tasks/<int:id_task>', methods=['GET'])
-@auth_required
+@jwt_required()
 def get_task(id_task):
     task = get_task_info.delay(id_task)
     return jsonify({'task_id': task.id}), 202
 
 @app.route('/api/tasks/<int:id_task>', methods=['DELETE'])
+@jwt_required()
 def delete_task(id_task):
     # verificar si el usuario está autorizado
     if not is_authorized(request):
@@ -345,11 +346,6 @@ def delete_task(id_task):
     
     return jsonify({'message': f'Tarea {id_task} eliminada con éxito'}), 200
 
-# función para verificar si el usuario está autorizado
-def is_authorized(request):
-    # implementar verificación de autorización aquí
-    # devolver True si el usuario está autorizado y False en caso contrario
-    return True
 
 # tarea de eliminación de tarea
 @celery.task(name='tasks.delete_task')
@@ -363,13 +359,9 @@ def eliminar_archivos(tarea):
     os.remove(tarea.archivo_convertido)
     
 	
-@app.route('/eliminar_archivo/<int:id_tarea>/<string:token>', methods=['DELETE'])
+@app.route('/eliminar_archivo/<int:id_tarea>', methods=['DELETE'])
+@jwt_required()
 def eliminar_archivo(id_tarea, token):
-    # verificar si el token es válido
-    # si el token no es válido, devolver un error de autenticación
-    if not verificar_token(token):
-        return jsonify({'error': 'Autenticación inválida'})
-
     # verificar si la tarea existe y su estado es 'Disponible'
     tarea = obtener_tarea(id_tarea)
     if tarea is None or tarea.estado != 'Disponible':
