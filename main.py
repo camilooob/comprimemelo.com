@@ -313,7 +313,7 @@ def get_tasks():
     return jsonify({'tasks': result})
 
 @app.route('/api/tasks', methods=['POST'])
-@auth.login_required
+@jwt_required()
 def create_task():
     if 'fileName' not in request.files or 'newFormat' not in request.form:
         return {'message': 'Missing parameters'}, 400

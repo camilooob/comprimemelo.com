@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ super() }}
+    Home
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <a href="{{ url_for('eventos.comprimir') }}" class="btn btn-primary btn-lg">Comprimir Archivo</a>
+        <hr>
+        
+            <form action="{{ url_for('eventos.compress', filename=file, format=format)}}" method="POST" enctype="multipart/form-data">
+                <h1>Compresión de archivos</h1>
+                <div class="items fr-3">
+                <input type="file" name="file">
+                <select id="cars" name="format">
+                  <option value=".zip">zip</option>
+                  <option value=".z7">z7</option>
+                  <option value=".rar">rar</option>
+                  <option value=".bzip">bzip</option>
+                  <option value=".tar">tar</option>
+                  <option value=".gz">gz</option>
+                  <option value=".tar.gz">tar.gz</option>
+                  <option value=".tar.bz2">tar.bz2</option>
+                </select>
+                <button>Comprimir</button>
+            </div>
+            </form>
+        
+    </div>
+{% endblock %}
