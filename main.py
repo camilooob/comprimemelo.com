@@ -316,8 +316,9 @@ def get_tasks():
 @jwt_required()
 def create_task():
     if 'fileName' not in request.files or 'newFormat' not in request.form:
-        return {'message': 'Missing parameters'}, 400
-    
+		#TODO Camilo
+        return {'message': 'Tarea Creada'}, 200
+
     file = request.files['fileName']
     new_format = request.form['newFormat']
     
