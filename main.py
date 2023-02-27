@@ -306,6 +306,7 @@ def list_tasks(user_id):
 
 # Define the /api/tasks endpoint
 @app.route('/api/tasks', methods=['GET'])
+@jwt_required()
 def get_tasks():
     user_id = 123  # Replace this with your code to fetch the user's ID from the request or session
     #task = list_tasks.delay(user_id)  # Call the Celery task asynchronously
@@ -332,20 +333,19 @@ def create_task():
 @app.route('/api/tasks/<int:id_task>', methods=['GET'])
 @jwt_required()
 def get_task(id_task):
-    task = get_task_info.delay(id_task)
-    return jsonify({'task_id': task.id}), 202
+    #task = get_task_info.delay(id_task)
+    return jsonify('''{'tasks': {"id": "1" "original_file": "pdf", "formtar": "rar", "status": "processed"}}''')
 
 @app.route('/api/tasks/<int:id_task>', methods=['DELETE'])
 @jwt_required()
 def delete_task(id_task):
     # verificar si el usuario está autorizado
-    if not is_authorized(request):
-        return jsonify({'message': 'No estás autorizado para acceder a este recurso'}), 401
+    #return jsonify('''{'tasks_delete': {"id": "1" "original_file": "pdf", "formtar": "rar", "status": "processed"}}''')
     
     # enviar tarea de eliminación al worker de celery
-    task = celery.send_task('tasks.delete_task', args=[id_task])
+    #task = celery.send_task('tasks.delete_task', args=[id_task])
     
-    return jsonify({'message': f'Tarea {id_task} eliminada con éxito'}), 200
+    return jsonify({'message': f'Tarea  eliminada con éxito'}), 200
 
 
 # tarea de eliminación de tarea
