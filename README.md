@@ -1,4 +1,4 @@
-Aplicación de Eventos Entrega 0 Desarrollo Cloud - Franklin Augusto Pinto Carreño -f.pintoc@uniandes.edu.co - 201011075
+Aplicación de Eventos Entrega 1 - comprimemelo.com - Cristhiam Camilo Baquero Gomez - c.baquero@uniandes.edu.co - Julian Torres - jy.torres@uniandes.edu.co - Franklin Augusto Pinto Carreño -f.pintoc@uniandes.edu.co - 201011075
 
 # Instalar Python - https://www.python.org/  - instalar pip -> se selecciona en la instalación de python.
 Python 3.8.3
