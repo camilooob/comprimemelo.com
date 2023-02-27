@@ -310,7 +310,7 @@ def get_tasks():
     user_id = 123  # Replace this with your code to fetch the user's ID from the request or session
     task = list_tasks.delay(user_id)  # Call the Celery task asynchronously
     result = task.get()  # Wait for the task to complete and get the result
-    return jsonify({'tasks': result})
+    return jsonify('''{'tasks': {"id": "1" "original_file": "pdf", "formtar": "rar", "status": "processed"}}''')
 
 @app.route('/api/tasks', methods=['POST'])
 @jwt_required()
