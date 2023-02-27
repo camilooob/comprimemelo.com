@@ -1,6 +1,8 @@
 Aplicación de Eventos Entrega 1 - comprimemelo.com - Cristhiam Camilo Baquero Gomez - c.baquero@uniandes.edu.co - Julian Torres - jy.torres@uniandes.edu.co - Franklin Augusto Pinto Carreño -f.pintoc@uniandes.edu.co - 201011075
 
- Documento de arquitectura de la aplicación: file llamado "Guia Uso - Arquitectura-conclusiones y consideraciones.pdf"
+
+#VIDEO EXPLICACIÓN: https://youtu.be/xY8I-C4ZGRo
+ #Documento de arquitectura de la aplicación: file llamado "Guia Uso - Arquitectura-conclusiones y consideraciones.pdf"
 
 # Instalar Python - https://www.python.org/  - instalar pip -> se selecciona en la instalación de python.
 Python 3.8.3
