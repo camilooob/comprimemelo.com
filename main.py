@@ -70,13 +70,16 @@ def index4():
       pathCompress=f"comprimidos/"
       pathFile=pathRoot+pathUpload+f"{file.filename}"
       file.save(pathFile);
-
+      #guardar en servidor remoto archivo sin comprimir
+      os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/sin_comprimir')	
       print('compressing...')
       nombre_archivo, extension = os.path.splitext(pathFile)
       #pathZip=pathRoot+file.filename.replace(extension,'.zip')
       pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
       with zipfile.ZipFile(pathZip, 'w') as zf:
           zf.write(pathFile,arcname=file.filename)
+	  #guardar en servidor remoto archivo comprimido
+	  os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/comprimidos')	
       print('...compression done!')
 
       file_data = {
@@ -117,6 +120,8 @@ def downloadFileOriginal(filename):
    pathRoot=os.path.abspath(os.curdir)+"/"
    pathUpload=f"sin_comprimir/"
    pathFile=pathRoot+pathUpload+f"{filename}"
+   #revisar como recuperar el archivo
+   os.system('get '+filename+'  sftp franklin_pinto@10.142.0.2:/home/storage/sin_comprimir/')
 
    return  download_file_original(pathFile)
 
