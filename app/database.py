@@ -61,7 +61,8 @@ def get_db():
     db_host_compri_c = str(dic_secret_comprimelo['db_host_compri'])
     db_name_c = str(dic_secret_comprimelo['db_name'])
     if 'db' not in g:
-        g.db=mysql.connector.connect(host=db_host_compri_c,user=username_c,password=password_c,database=db_name_c)
+        g.db=mysql.connector.connect(host=34.31.69.88,user=root,password=O|)d<k(lP|SK{duY,database= mysql-comprimemelo
+)
     return g.db
 
 # Function to close an existing database connection.
