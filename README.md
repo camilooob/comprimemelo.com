@@ -11,7 +11,11 @@ Fecha de presentación: Marzo 5 de 2023
 
 LINK APLICACIÓN WEB: http://comprimemelo.com:5000/
 LINK DOCUMENTACION: https://docs.google.com/document/d/1TNBdU14JB5dwhn43IzIQIR3D6lsVBCWaGhuNs4VEAAs/edit
-Video:
+LINK VIDEO:
+
+
+
+
 Arquitectura de la aplicación
 
 La aplicación web de compresión de archivos se encuentra implementada bajo el modelo vista controlador. El modelo implementa un conjunto de métodos para crear, modificar, eliminar, consultar, comprimir y descomprimir archivos y tiene acceso directo al motor de persistencia.
