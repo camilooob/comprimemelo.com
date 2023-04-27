@@ -1,9 +1,5 @@
 FROM python:3.8
 
-RUN mkdir /home/juliantorres/comprimemelo.com
-
-WORKDIR /home/juliantorres/comprimemelo.com
-
 COPY  . ./
 
 RUN pip3 install --no-cache-dir -r requeriments.txt
