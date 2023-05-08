@@ -10,7 +10,7 @@ def read_secret():
 
     # ID of the secret to create.
     secret_name = "secretos_comprimemelo"
-    resource_name = f"projects/208785026947/secrets/secretos_comprimemelo/versions/1"
+    resource_name = f"projects/208785026947/secrets/secretos_comprimemelo/versions/2"
     client = secretmanager.SecretManagerServiceClient()
     response = client.access_secret_version(request={"name": resource_name})
 
