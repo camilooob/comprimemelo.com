@@ -96,13 +96,13 @@ def index4():
         'data': file.read(),
         'email':get_jwt_identity()
       }
-      id=register_file(file_data)
+    id=register_file(file_data)
       
 
-      msg=Message('El Archivo se a comprimido satisfactoriamente', sender=app.config['MAIL_USERNAME'],recipients=[get_jwt_identity()])
-      mail.send(msg)
-      
-      return f"{id}"
+    msg=Message('El Archivo se a comprimido satisfactoriamente', sender=app.config['MAIL_USERNAME'],recipients=[get_jwt_identity()])
+    mail.send(msg)
+    
+    return f"{id}"
 
 @app.route('/app/files/compress/download/<upload_id>', methods=["GET", "POST"])
 @jwt_required()
