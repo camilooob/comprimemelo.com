@@ -1,10 +1,32 @@
 import os
-import boto3
-from botocore.exceptions import ClientError
 import json
+from google.cloud import storage
+from google.cloud import bigquery
+from google.cloud import secretmanager
 
+def read_secret():
+    # Access the secret version.
+    project_id = "datacompressionprojectfjc"
+
+    # ID of the secret to create.
+    secret_name = "secretos_comprimemelo"
+    resource_name = f"projects/208785026947/secrets/secretos_comprimemelo/versions/1"
+    client = secretmanager.SecretManagerServiceClient()
+    response = client.access_secret_version(request={"name": resource_name})
+
+    # Print the secret payload.
+    #
+    # WARNING: Do not print the secret in a production environment - this
+    # snippet is showing how to access the secret material.
+    secret_comprimelo = response.payload.data.decode("UTF-8")
+    #print("Plaintext: {}".format(secret_mysql))
+    ##ssh variables
+    secret_comprimelo_dic = json.loads(secret_comprimelo)
+    print(secret_comprimelo_dic)
+    return secret_comprimelo_dic
 
 class Config:
+
 
     secret_name = "rds!cluster-6b7d7cb4-5a52-4fff-9ee4-5c1bf54c7919"
     region_name = "us-east-2"
@@ -77,3 +99,4 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USE_SSL = False
     
+read_secret()
