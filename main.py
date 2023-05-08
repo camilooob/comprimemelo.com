@@ -68,7 +68,7 @@ def index4():
     pathFile=pathRoot+pathUpload+f"{file.filename}"
     file.save(pathFile);
     #guardar en servidor remoto archivo sin comprimir
-    #os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/sin_comprimir')	
+    os.system('gcloud storage cp /root/comprimemelo.com/sin_comprimir gs://file_comprimemelo_bucket_storage/sin_comprimir/')
     print('compressing...')
     nombre_archivo, extension = os.path.splitext(pathFile)
     #pathZip=pathRoot+file.filename.replace(extension,'.zip')
@@ -76,7 +76,7 @@ def index4():
     with zipfile.ZipFile(pathZip, 'w') as zf:
         zf.write(pathFile,arcname=file.filename)
     #guardar en servidor remoto archivo comprimido
-    #os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/comprimidos')	
+    os.system('gcloud storage cp /root/comprimemelo.com/sin_comprimir gs://file_comprimemelo_bucket_storage/comprimidos/')
     print('...compression done!')
 
     file_data = {
@@ -118,7 +118,7 @@ def downloadFileOriginal(filename):
    pathUpload=f"sin_comprimir/"
    pathFile=pathRoot+pathUpload+f"{filename}"
    #revisar como recuperar el archivo
-   #os.system('get '+filename+'  sftp franklin_pinto@10.142.0.2:/home/storage/sin_comprimir/')
+   os.system('gcloud storage cp /root/comprimemelo.com/sin_comprimir gs://file_comprimemelo_bucket_storage/sin_comprimir/')
 
    return  download_file_original(pathFile)
 
