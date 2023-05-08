@@ -20,14 +20,12 @@ import os
 import getpass
 from celery import Celery
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = create_app()
 mail=Mail()
 jwt = JWTManager(app)
 mail.init_app(app)
-
 
 @app.errorhandler(404)
 def not_found(error):
@@ -42,7 +40,6 @@ def internal_server_error(error):
 @app.route('/')
 def index():
     return render('index.html')
-
 
 @app.route('/database')
 def database():
@@ -64,23 +61,23 @@ def index4():
     format = url_params['format']
 
     print(f'compressing...{format}')
-	file = request.files['file']
-	pathRoot=os.path.abspath(os.curdir)+"/"
-	pathUpload=f"sin_comprimir/"
-	pathCompress=f"comprimidos/"
-	pathFile=pathRoot+pathUpload+f"{file.filename}"
-	file.save(pathFile);
-	#guardar en servidor remoto archivo sin comprimir
-	#os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/sin_comprimir')	
-	print('compressing...')
-	nombre_archivo, extension = os.path.splitext(pathFile)
-	#pathZip=pathRoot+file.filename.replace(extension,'.zip')
-	pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
-	with zipfile.ZipFile(pathZip, 'w') as zf:
-		zf.write(pathFile,arcname=file.filename)
-	#guardar en servidor remoto archivo comprimido
-	#os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/comprimidos')	
-	print('...compression done!')
+    file = request.files['file']
+    pathRoot=os.path.abspath(os.curdir)+"/"
+    pathUpload=f"sin_comprimir/"
+    pathCompress=f"comprimidos/"
+    pathFile=pathRoot+pathUpload+f"{file.filename}"
+    file.save(pathFile);
+    #guardar en servidor remoto archivo sin comprimir
+    #os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/sin_comprimir')	
+    print('compressing...')
+    nombre_archivo, extension = os.path.splitext(pathFile)
+    #pathZip=pathRoot+file.filename.replace(extension,'.zip')
+    pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
+    with zipfile.ZipFile(pathZip, 'w') as zf:
+        zf.write(pathFile,arcname=file.filename)
+    #guardar en servidor remoto archivo comprimido
+    #os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/comprimidos')	
+    print('...compression done!')
 
       file_data = {
         #'filename': file.filename.replace(extension,'.zip'),
@@ -214,8 +211,6 @@ def register():
 def send_email(user_email, username, msg):
     msg=Message(msg, sender=app.config['MAIL_USERNAME'],recipients=[user_email])
 
-
-
 @app.route('/api/auth/login', methods=['POST'])
 def loginToken():
     if request.is_json:
@@ -233,68 +228,68 @@ def loginToken():
         return jsonify('Bad email or Password'), 401
     
 DIC_MIME_TYPES = { 
-	".aac"  :"audio/aac",
-	".abw"  :"application/x-abiword",
-	".arc"  :"application/octet-stream",
-	".avi"  :"video/x-msvideo",
-	".azw"  :"application/vnd.amazon.ebook",
-	".bin"  :"application/octet-stream",
-	".bz"   :"application/x-bzip",
-	".bz2"  :"application/x-bzip2",
-	".csh"  :"application/x-csh",
-	".css"  :"text/css",
-	".csv"  :"text/csv",
-	".doc"  :"application/msword",
+    ".aac"  :"audio/aac",
+    ".abw"  :"application/x-abiword",
+    ".arc"  :"application/octet-stream",
+    ".avi"  :"video/x-msvideo",
+    ".azw"  :"application/vnd.amazon.ebook",
+    ".bin"  :"application/octet-stream",
+    ".bz"   :"application/x-bzip",
+    ".bz2"  :"application/x-bzip2",
+    ".csh"  :"application/x-csh",
+    ".css"  :"text/css",
+    ".csv"  :"text/csv",
+    ".doc"  :"application/msword",
     ".docx" :"application/msword",
-	".epub" :"application/epub+zip",
-	".gif"  :"image/gif",
-	".htm"  :"text/html",
-	".ico"  :"image/x-icon",
-	".ics"  :"text/calendar",
-	".jar"  :"application/java-archive",
-	".jpeg" :"image/jpeg",
-	".js"   :"application/javascript",
-	".json" :"application/json",
-	".mid"  :"audio/midi",
-	".mpeg" :"video/mpeg",
-	".mpkg" :"application/vnd.apple.installer+xml",
-	".odp"  :"application/vnd.oasis.opendocument.presentation",
-	".ods"  :"application/vnd.oasis.opendocument.spreadsheet",
-	".odt"  :"application/vnd.oasis.opendocument.text",
-	".oga"  :"audio/ogg",
-	".ogv"  :"video/ogg",
-	".ogx"  :"application/ogg",
-	".pdf"  :"application/pdf",
-	".ppt"  :"application/vnd.ms-powerpoint",
-	".rar"  :"application/x-rar-compressed",
-	".rtf"  :"application/rtf",
-	".sh"   :"application/x-sh",
-	".svg"  :"image/svg+xml",
-	".swf"  :"application/x-shockwave-flash",
-	".tar"  :"application/x-tar",
-	".tif"  :"image/tiff",
-	".ttf"  :"font/ttf",
-	".vsd"  :"application/vnd.visio",
-	".wav"  :"audio/x-wav",
-	".weba" :"audio/webm",
-	".webm" :"video/webm",
-	".webp" :"image/webp",
-	".woff" :"font/woff",
-	".woff2":"font/woff2",
-	".xhtml":"application/xhtml+xml",
-	".xls"  :"application/vnd.ms-excel",
-	".xml"  :"application/xml",
-	".xul"  :"application/vnd.mozilla.xul+xml",
-	".zip"  :"application/zip",
-	".3gp"  :"video/3gpp",
-	".3g2"  :"video/3gpp2",
-	".7z"   :"application/x-7z-compressed",
+    ".epub" :"application/epub+zip",
+    ".gif"  :"image/gif",
+    ".htm"  :"text/html",
+    ".ico"  :"image/x-icon",
+    ".ics"  :"text/calendar",
+    ".jar"  :"application/java-archive",
+    ".jpeg" :"image/jpeg",
+    ".js"   :"application/javascript",
+    ".json" :"application/json",
+    ".mid"  :"audio/midi",
+    ".mpeg" :"video/mpeg",
+    ".mpkg" :"application/vnd.apple.installer+xml",
+    ".odp"  :"application/vnd.oasis.opendocument.presentation",
+    ".ods"  :"application/vnd.oasis.opendocument.spreadsheet",
+    ".odt"  :"application/vnd.oasis.opendocument.text",
+    ".oga"  :"audio/ogg",
+    ".ogv"  :"video/ogg",
+    ".ogx"  :"application/ogg",
+    ".pdf"  :"application/pdf",
+    ".ppt"  :"application/vnd.ms-powerpoint",
+    ".rar"  :"application/x-rar-compressed",
+    ".rtf"  :"application/rtf",
+    ".sh"   :"application/x-sh",
+    ".svg"  :"image/svg+xml",
+    ".swf"  :"application/x-shockwave-flash",
+    ".tar"  :"application/x-tar",
+    ".tif"  :"image/tiff",
+    ".ttf"  :"font/ttf",
+    ".vsd"  :"application/vnd.visio",
+    ".wav"  :"audio/x-wav",
+    ".weba" :"audio/webm",
+    ".webm" :"video/webm",
+    ".webp" :"image/webp",
+    ".woff" :"font/woff",
+    ".woff2":"font/woff2",
+    ".xhtml":"application/xhtml+xml",
+    ".xls"  :"application/vnd.ms-excel",
+    ".xml"  :"application/xml",
+    ".xul"  :"application/vnd.mozilla.xul+xml",
+    ".zip"  :"application/zip",
+    ".3gp"  :"video/3gpp",
+    ".3g2"  :"video/3gpp2",
+    ".7z"   :"application/x-7z-compressed",
     ".tar.bz" :"application/x-gzip",
     ".tar.bz2" :"application/x-gzip",
     ".gz" :"application/x-gzip",
     ".bzip" :"application/x-bzip",
     
-	}
+    }
 
 app.config['CELERY_BROKER_URL'] = 'amqp://localhost//'  # RabbitMQ broker URL
 app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'  # Redis backend URL
@@ -322,7 +317,7 @@ def get_tasks():
 @jwt_required()
 def create_task():
     if 'fileName' not in request.files or 'newFormat' not in request.form:
-		#TODO Camilo
+        #TODO Camilo
         return {'message': 'Tarea Creada'}, 200
 
     file = request.files['fileName']
@@ -363,8 +358,7 @@ def eliminar_archivos(tarea):
     # eliminar los archivos originales y convertidos de la tarea
     os.remove(tarea.archivo_original)
     os.remove(tarea.archivo_convertido)
-    
-	
+
 @app.route('/eliminar_archivo/<int:id_tarea>', methods=['DELETE'])
 @jwt_required()
 def eliminar_archivo(id_tarea, token):
