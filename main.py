@@ -79,7 +79,7 @@ def index4():
     #os.system('rsync -r '+file.filename+' franklin_pinto@10.142.0.2:/home/storage/comprimidos')	
     print('...compression done!')
 
-      file_data = {
+    file_data = {
         #'filename': file.filename.replace(extension,'.zip'),
         'filenameOriginal': file.filename,
         'filenameCompress': file.filename.replace(extension,format),
