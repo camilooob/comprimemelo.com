@@ -12,5 +12,5 @@ COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 8000 &
+ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 5000 &
 
