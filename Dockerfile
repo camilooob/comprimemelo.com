@@ -10,7 +10,7 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+EXPOSE 8080
 
-ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 5000 &
+ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 8080 &
 
