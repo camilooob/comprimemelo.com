@@ -1,16 +1,15 @@
-FROM python:3.8
+FROM python:3.10-slim
 
-WORKDIR /opt/app
+ENV PYTHONUNBUFFERED True
 
-COPY requirements.txt .
+ENV APP_HOME /app
 
-# Install app dependencies
+WORKDIR $APP_HOME
 
-RUN pip3 install --no-cache-dir -r requirements.txt
+COPY . ./
 
-COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
-ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 8080 &
-
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
