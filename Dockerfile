@@ -8,7 +8,7 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN apt-get install python-dev libmysqlclient-dev
+RUN apt-get install python3-mysqldb
 
 RUN pip3 install MySQL-python
 
