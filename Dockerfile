@@ -8,8 +8,6 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip install MySQL-python
-
 RUN pip install mysql-connector-python
 
 RUN pip install pymysql
