@@ -8,7 +8,11 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip3 install mysqlclient
+RUN pip install MySQL-python
+
+RUN pip install mysql-connector-python
+
+RUN pip install pymysql
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 

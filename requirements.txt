@@ -50,7 +50,6 @@ kombu==5.2.4
 MarkupSafe==2.1.2
 marshmallow==3.19.0
 marshmallow-sqlalchemy==0.28.1
-mysql-connector-python==8.0.33
 packaging==23.1
 prompt-toolkit==3.0.38
 proto-plus==1.22.2
