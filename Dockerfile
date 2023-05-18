@@ -10,7 +10,7 @@ COPY . ./
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN pip3 install mysql-python
+RUN sudo apt-get install libmysqlclient-dev
 
 EXPOSE 8080
 
