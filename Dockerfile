@@ -8,9 +8,9 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip3 install --no-cache-dir -r requirements.txt
-
 RUN sudo apt-get install libmysqlclient-dev
+
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
