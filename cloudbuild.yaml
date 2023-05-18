@@ -1,15 +1,15 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c','docker build --no-cache -t gcr.io/datacompressionprojectfjc/comprimemelo_app:$SHORT_SHA .']
+  args: ['-c','docker build --no-cache -t gcr.io/datacompressionprojectfjc/comprimemelo_app .']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push','gcr.io/$datacompressionprojectfjc/comprimemelo_app:$SHORT_SHA']
+  args: ['push','gcr.io/datacompressionprojectfjc/comprimemelo_app']
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
     - 'beta'
     - 'run'
     - 'deploy'
     - 'testssr'
-    - '--image=gcr.io/$datacompressionprojectfjc/comprimemelo_app:$SHORT_SHA'
+    - '--image=gcr.io/datacompressionprojectfjc/comprimemelo_app'
     - '--region=us-central1'
     - '--platform=managed'
