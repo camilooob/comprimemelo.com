@@ -8,8 +8,6 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN apt-get install python3-mysqldb
-
 RUN pip3 install MySQL-python
 
 RUN pip3 install --no-cache-dir -r requirements.txt
