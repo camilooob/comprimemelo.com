@@ -8,7 +8,9 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip3 install pymysql
+RUN apt-get install python-dev libmysqlclient-dev
+
+RUN pip3 install MySQL-python
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
