@@ -8,9 +8,9 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN pip install mysql-python
+RUN pip3 install mysql-python
 
 EXPOSE 8080
 
