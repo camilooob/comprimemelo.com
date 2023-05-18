@@ -10,7 +10,7 @@ COPY . ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN sudo apt-get install python3-dev
+RUN pip install mysql-python
 
 EXPOSE 8080
 
