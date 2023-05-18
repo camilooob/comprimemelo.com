@@ -16,4 +16,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 EXPOSE 8080
 
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
+ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 8080 &
