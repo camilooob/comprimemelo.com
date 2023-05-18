@@ -13,4 +13,4 @@ steps:
     - '--image=gcr.io/datacompressionprojectfjc/comprimemelo_app'
     - '--region=us-central1'
     - '--platform=managed'
-    - '--port 8080'
+    - '--port=8080'
