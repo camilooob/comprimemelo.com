@@ -15,9 +15,7 @@ RUN pip3 install pymysql
 
 RUN pip3 install configparser
 
-RUN sudo PATH=/usr/local/mysql/bin/:$PATH pip3 install mysql-python
-
-RUN pip3 install mysqlclient
+RUN pip3 install mysqlclient==2.1.1
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
