@@ -16,6 +16,8 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN pip3 install Flask gunicorn
 
+RUN pip install --upgrade flask_login
+
 ENV PORT=8080
 
 EXPOSE 8080
