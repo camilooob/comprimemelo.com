@@ -8,15 +8,17 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip install mysql-connector-python
+RUN pip3 install mysql-connector-python
 
-RUN pip install pymysql
+RUN pip3 install pymysql
+
+RUN pip3 install mysqlclient
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN pip3 install Flask gunicorn
 
-RUN pip install --upgrade flask_login
+RUN pip3 install --upgrade flask_login
 
 ENV PORT=8080
 
