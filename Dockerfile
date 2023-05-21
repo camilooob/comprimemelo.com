@@ -14,8 +14,8 @@ RUN pip install pymysql
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-ENV PORT=8080
+ENV PORT=3000
 
-EXPOSE 8080
+EXPOSE 3080
 # Run the web service on container startup. Here we use the gunicorn
 CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
