@@ -12,5 +12,4 @@ steps:
     - 'crun.buid-comprimemelo_app'
     - '--image=gcr.io/datacompressionprojectfjc/comprimemelo_app'
     - '--region=us-central1'
-- images: 
-  - 'gcr.io/datacompressionprojectfjc/comprimemelo_app'       
+    
