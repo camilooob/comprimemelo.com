@@ -8,6 +8,7 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
+RUN pip3 install python-dev-tools
 RUN pip3 install mysql-connector-python
 
 RUN pip3 install pymysql
