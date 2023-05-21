@@ -9,8 +9,8 @@ steps:
     - 'beta'
     - 'run'
     - 'deploy'
-    - 'testssr'
+    - 'crun.buid-comprimemelo_app'
     - '--image=gcr.io/datacompressionprojectfjc/comprimemelo_app'
     - '--region=us-central1'
-    - '--platform=managed'
-    - '--port=3000'
+- images: 
+  - 'gcr.io/datacompressionprojectfjc/comprimemelo_app'       
