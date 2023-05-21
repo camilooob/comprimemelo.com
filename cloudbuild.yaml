@@ -9,7 +9,7 @@ steps:
     - 'beta'
     - 'run'
     - 'deploy'
-    - 'crun.buid-comprimemelo_app'
+    - 'crunbuid-comprimemelo_app'
     - '--image=gcr.io/datacompressionprojectfjc/comprimemelo_app'
     - '--region=us-central1'
     
