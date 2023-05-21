@@ -12,7 +12,7 @@ RUN pip3 install mysql-connector-python
 
 RUN pip3 install pymysql
 
-RUN pip3 install mysqlclient
+RUN pip3 install MySQL-python
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
