@@ -14,9 +14,10 @@ RUN pip install pymysql
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-EXPOSE 8080
+RUN pip3 install Flask gunicorn
 
-ENV HOST=0.0.0.0
 ENV PORT=8080
 
-ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 8080 &
+EXPOSE 8080
+# Run the web service on container startup. Here we use the gunicorn
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
