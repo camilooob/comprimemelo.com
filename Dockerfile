@@ -14,8 +14,9 @@ RUN pip install pymysql
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-ENV PORT=3000
+EXPOSE 8080
 
-EXPOSE 3080
+ENV HOST=0.0.0.0
+ENV PORT=8080
 
-ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 3080 &
+ENTRYPOINT nohup python -m flask --app main --debug run --host=0.0.0.0 --port 8080 &
