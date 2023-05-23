@@ -10,6 +10,8 @@ COPY . ./
 
 RUN pip3 install mysql-connector-python
 
+RUN pip3 install mysqlclient
+
 RUN pip3 install pymysql
 
 RUN pip3 install mysql-python
