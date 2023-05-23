@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.8
 
 ENV PYTHONUNBUFFERED True
 
@@ -8,9 +8,11 @@ WORKDIR $APP_HOME
 
 COPY . ./
 
-RUN pip install mysql-connector-python
+RUN pip3 install mysql-connector-python
 
-RUN pip install pymysql
+RUN pip3 install pymysql
+
+RUN pip3 install mysql-python
 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
