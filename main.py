@@ -79,9 +79,8 @@ def index4():
     bucket_name = 'file_comprimemelo_bucket_storage/comprimidos'
    
     #Se instancia la clase de Cloud Storage para poder comunicarnos directamente con la nube.
-    client = storage.Client(project='datacompressionprojectfjc')
-    #Seleccionamos el bucket necesario para realizar las operaciones que queramos como subir archivos.
-    bucket = client.get_bucket(bucket_name)
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
 
     #Se crea un Objeto de tipo Blob con un nombre que deseamos que vaya a tener dentro del bucket.
     blob = Blob('prueba.png', bucket)
