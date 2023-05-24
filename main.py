@@ -20,6 +20,8 @@ import os
 import getpass
 from celery import Celery
 from google.cloud import storage
+from google.cloud.storage import Blob
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -73,32 +75,23 @@ def index4():
     #pathZip=pathRoot+file.filename.replace(extension,'.zip')
     pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
    
-    file_name = file.filename
+   
     bucket_name = 'file_comprimemelo_bucket_storage/comprimidos'
-    storage_client = storage.Client()
-    bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(file_name)
+   
+    #Se instancia la clase de Cloud Storage para poder comunicarnos directamente con la nube.
+    client = storage.Client(project='datacompressionprojectfjc')
+    #Seleccionamos el bucket necesario para realizar las operaciones que queramos como subir archivos.
+    bucket = client.get_bucket(bucket_name)
 
-    # Check if file is already compressed
-    if file_name.endswith('.gz') or file_name.endswith('.process'):
-        print(f"File {file_name} is already compressed. Skipping compression.")
-        return
+    #Se crea un Objeto de tipo Blob con un nombre que deseamos que vaya a tener dentro del bucket.
+    blob = Blob('prueba.png', bucket)
 
-    # Compress the file
-    blob_content = blob.download_as_bytes()
-    compressed_content = zlib.compress(blob_content)
+    #Ahora le decimos al blog que suba el archivo en dicha dirección a nuestro bucket pasando dos parametros la PATH del file y el contentex type.
+    blob.upload_from_filename('/PATH/TO/FILE.png','image/png')
+    #Hacemos que el archivo sea publico si así lo deseamos
+    blob.make_public()
 
-    # Upload the compressed file
-    compressed_file_name = file_name + '.gz'
-    compressed_blob = bucket.blob(compressed_file_name)
-    compressed_blob.upload_from_string(compressed_content, content_type=blob.content_type)
-
-    # Rename the original file with the .process extension
-    processed_file_name = file_name + '.process'
-    processed_blob = bucket.blob(processed_file_name)
-    processed_blob.upload_from_string(blob_content, content_type=blob.content_type)
-    blob.delete()
-
+    
     file_data = {
         #'filename': file.filename.replace(extension,'.zip'),
         'filenameOriginal': file.filename,
