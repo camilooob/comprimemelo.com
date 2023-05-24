@@ -86,7 +86,7 @@ def index4():
     blob = Blob('prueba.png', bucket)
 
     #Ahora le decimos al blog que suba el archivo en dicha dirección a nuestro bucket pasando dos parametros la PATH del file y el contentex type.
-    blob.upload_from_filename('/PATH/TO/FILE.png','image/png')
+    blob.upload_from_filename('/file_comprimemelo_bucket_storage/comprimidos/FILE.png','image/png')
     #Hacemos que el archivo sea publico si así lo deseamos
     blob.make_public()
 
