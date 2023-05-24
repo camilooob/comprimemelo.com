@@ -103,8 +103,8 @@ def index4():
         'data': file.read(),
         'email':get_jwt_identity()
       }
-    id=register_file(file_data)
-      
+    #id=register_file(file_data)
+    id=1000  
 
     msg=Message('El Archivo se a comprimido satisfactoriamente', sender=app.config['MAIL_USERNAME'],recipients=[get_jwt_identity()])
     mail.send(msg)
