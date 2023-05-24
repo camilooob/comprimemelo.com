@@ -18,7 +18,9 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 RUN pip3 install Flask gunicorn
 
-RUN pip install --upgrade flask_login
+RUN pip3 install --upgrade flask_login
+
+RUN pip3 install google-cloud-storage
 
 ENV PORT=8080
 

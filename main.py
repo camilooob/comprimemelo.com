@@ -19,6 +19,7 @@ from flask import copy_current_request_context
 import os
 import getpass
 from celery import Celery
+from google.cloud import storage
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -56,7 +57,7 @@ def upload():
 @jwt_required()
 def index4():
     url_params = request.args
-
+    
     # Retrieve parameters which are present
     format = url_params['format']
 
@@ -66,18 +67,37 @@ def index4():
     pathUpload=f"sin_comprimir/"
     pathCompress=f"comprimidos/"
     pathFile=pathRoot+pathUpload+f"{file.filename}"
-    file.save(pathFile);
-    #guardar en servidor remoto archivo sin comprimir
-    os.system('gcloud storage cp /root/comprimemelo.com/sin_comprimir gs://file_comprimemelo_bucket_storage/sin_comprimir/')
-    print('compressing...')
+    #file.save(pathFile);
+    
     nombre_archivo, extension = os.path.splitext(pathFile)
     #pathZip=pathRoot+file.filename.replace(extension,'.zip')
     pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
-    with zipfile.ZipFile(pathZip, 'w') as zf:
-        zf.write(pathFile,arcname=file.filename)
-    #guardar en servidor remoto archivo comprimido
-    os.system('gcloud storage cp /root/comprimemelo.com/sin_comprimir gs://file_comprimemelo_bucket_storage/comprimidos/')
-    print('...compression done!')
+   
+    file_name = file.filename
+    bucket_name = 'file_comprimemelo_bucket_storage/comprimidos'
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(file_name)
+
+    # Check if file is already compressed
+    if file_name.endswith('.gz') or file_name.endswith('.process'):
+        print(f"File {file_name} is already compressed. Skipping compression.")
+        return
+
+    # Compress the file
+    blob_content = blob.download_as_bytes()
+    compressed_content = zlib.compress(blob_content)
+
+    # Upload the compressed file
+    compressed_file_name = file_name + '.gz'
+    compressed_blob = bucket.blob(compressed_file_name)
+    compressed_blob.upload_from_string(compressed_content, content_type=blob.content_type)
+
+    # Rename the original file with the .process extension
+    processed_file_name = file_name + '.process'
+    processed_blob = bucket.blob(processed_file_name)
+    processed_blob.upload_from_string(blob_content, content_type=blob.content_type)
+    blob.delete()
 
     file_data = {
         #'filename': file.filename.replace(extension,'.zip'),
