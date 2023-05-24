@@ -74,7 +74,7 @@ def index4():
     pathZip=pathRoot+pathCompress+file.filename.replace(extension,format)
    
     file_name = file.filename
-    bucket_name = 'gs://file_comprimemelo_bucket_storage/comprimidos/'
+    bucket_name = 'file_comprimemelo_bucket_storage/comprimidos'
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(file_name)
