@@ -1,4 +1,6 @@
-Entrega 4 -ESCALABILIDAD DISEÑO E IMPLEMENTACIÓN DE UNA APLICACIÓN WEB ESCALABLE EN NUBE PÚBLICA 
+ENTREGA 5 - DESPLIEGUE EN PAAS
+MIGRACIÓN DE UNA APLICACIÓN WEB A UN PLATAFORMA COMO
+SERVICIO EN LA NUBE PÚBLICA 
 
 
 
@@ -7,12 +9,12 @@ C. Camilo Baquero Gómez, Julian Torres, Franklin A. Pinto Carreño.
 Desarrollo de Aplicaciones Cloud
 Universidad de los Andes, Bogotá, Colombia
 c.baquero@uniandes.edu.co, jy.torres@uniandes.edu.co, f.pintoc@uniandes.edu.co
-Fecha de presentación: MAYO 7 de 2023
+Fecha de presentación: MAYO 28 de 2023
 
 LINK APLICACIÓN WEB: http://comprimemelo.com:5000/
 
 DOCUMENTACION: PDF SE ENCUENTRA EN ESTE REPO, TAMBIEN SE AGREGA EL LINK DE GOOGLE DOCS
-LINK DOCUMENTACION: https://docs.google.com/document/d/1XbAUU5gHYglkhpxJkbMXi2dZKJh7kqwLklSaWgL0VTw (PDF EN EL REPO DE GITHUB) 
+LINK DOCUMENTACION: [https://docs.google.com/document/d/1XbAUU5gHYglkhpxJkbMXi2dZKJh7kqwLklSaWgL0VTw ](https://docs.google.com/document/d/1ICdA_GYFV05yuQ23E-MlZnO4iWjWyp-6jPk2rAwnE7Q/edit#heading=h.mmxcvriv0hn9)(PDF EN EL REPO DE GITHUB) 
 
 
 La aplicación web de compresión de archivos se encuentra implementada bajo el modelo desacoplamiento utilizando una instancia web que se encarga de desplegar el front en un compute engine, y procesar los archivos de compresión en un Worker comunicado mediante una cola de Pubsub, el front y un worker que procesa la compresión de archivos. 
